@@ -111,7 +111,7 @@ plot(data2$Treatment, data2$Length, xlab= "Treatment", ylab= "Fish Length (mm)")
 
 
 scatter.smooth(data2$DFF.FID, data2$FID, xlab= "DFF FID (mm)", ylab= "FID (mm)")
-
+par(mfrow=c(1,1))
 scatter.smooth(data2$DFS.FID, data2$FID, xlab= "DFS FID (mm)", ylab= "FID (mm)")
 
 boxplot(data2$DFF.FID~ data2$DFF.post.FID, xlab= "DFF FID (mm)", ylab= "DFF post FID (mm)")
@@ -193,6 +193,12 @@ FID_Length<- ggplot(data2, aes(Length, FID))+ facet_wrap(~Treatment)+
   geom_point()+
   theme_classic()
 FID_Length
+
+#DFS vs during FID-- can I do a boxplot?
+FID_DFS<- ggplot(data2, aes(DFS.FID, FID))+ facet_wrap(~Treatment)+
+  geom_point()+
+  theme_classic()
+FID_DFS
 
 
 FID_Length_Genus<- ggplot(data2, aes(Length, FID))+ facet_wrap(~Genus)+
