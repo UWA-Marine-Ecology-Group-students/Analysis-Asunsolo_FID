@@ -96,7 +96,7 @@ Perspex
 
 plot(data2$Treatment, data2$FID, xlab= "Treatment", ylab= "FID (mm)")
 
-scatter.smooth(data2$Length, data2$FID, xlab= "Fish size (mm)", ylab= "FID (mm)")
+scatter.smooth(data2$Length, data2$FID, xlab= "Fish length (mm)", ylab= "FID (mm)")
 dotchart(data2$Length, data2$FID, xlab= "Fish size (mm)", ylab= "FID (mm)")
 
 plot(data2$Species, data2$FID, xlab= "", ylab= "FID (mm)", las=3, cex= 0.2)
