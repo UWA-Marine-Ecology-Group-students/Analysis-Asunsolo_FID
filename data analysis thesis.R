@@ -158,7 +158,7 @@ ggplot(data2long,aes(x = factor(Treatment), y = value,  fill = DFF, notch=FALSE,
   stat_summary(fun.y=mean, geom="point", shape=23, size=4)+ #this is adding the dot for the mean
   #scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+ # this sets 10% above the max for each on the Y scale
   # scale_fill_manual(values = c("Fished" = "grey", "No-take" = "#1470ad"))+
-  xlab("DFF") + ylab("Distance") +
+  xlab("Treatment") + ylab("Distance") +
   #annotation_custom(grob.sci)+ #adds a title
   Theme1
 
@@ -168,7 +168,7 @@ ggplot(data2long.1,aes(x = factor(Treatment), y = value,  fill = speed, notch=FA
   stat_summary(fun.y=mean, geom="point", shape=23, size=4)+ #this is adding the dot for the mean
   #scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+ # this sets 10% above the max for each on the Y scale
   # scale_fill_manual(values = c("Fished" = "grey", "No-take" = "#1470ad"))+
-  xlab("DFF") + ylab("Distance") +
+  xlab("Treatment") + ylab("Speed (m/s)") +
   #annotation_custom(grob.sci)+ #adds a title
   Theme1
 
@@ -349,7 +349,18 @@ data2$DFS.FID <- as.numeric(data2$DFS.FID, rm.na = TRUE)
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
 
+data2.1 <- data2 %>%
+  group_by(uniqueID)%>%
+  mutate(DFSAvg=mean(c(DFS.prior.1, DFS.prior.2,DFS.prior.3), na.rm=T))  %>% 
+  glimpse()
+
 data3<- na.omit(data2) 
+
+data4 <- data3 %>%
+  group_by(uniqueID)%>%
+  mutate(DFSAvg=mean(c(DFS.prior.1, DFS.prior.2,DFS.prior.3), na.rm=T))  %>% 
+  glimpse()
+
 cont.preds=c("Length","DFSAvg","DFS.FID") # use as continuous predictors.
 
 cat.preds= c("Treatment","Genus", "Species", "School.Individual")
@@ -359,16 +370,11 @@ null.vars="site" # use as random effect and null model
 # Check for correalation of predictor variables- remove anything highly correlated (>0.95)---
 
 
-
 par(mfrow=c(1,1))
 plot(data3$Length, data3$DFS.prior.1)
 plot(data3$Length, data3$DFS.prior.2)
 plot(data3$Length, data3$DFS.FID)
 
-data4 <- data3 %>%
-  group_by(uniqueID)%>%
- mutate(DFSAvg=mean(c(DFS.prior.1, DFS.prior.2,DFS.prior.3), na.rm=T))  %>% 
-  glimpse()
 
 write.csv(data2, "data2.csv", sep=",")
 write.csv(data3, "data3.csv", sep=",")
@@ -397,7 +403,7 @@ for (i in cont.preds) {
 str(data2)
 glimpse(data2)
 data2<- as.data.frame(data2)
-data4$sqrt.Length <- sqrt(data2$Length) #not sure which transformation to use
+data2$sqrt.Length <- sqrt(data2$Length) #not sure which transformation to use
 
 data2$log.Length <- log(data2$Length + 1) #between log and sqrt
 data2$sqrt.DFS.prior.3 <- sqrt(data2$DFS.prior.3) # is it suggesting a relation?
