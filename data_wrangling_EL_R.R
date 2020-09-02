@@ -65,7 +65,7 @@ dat4 <- dat3 %>%
   mutate(DFFAvg=mean(c(DFF.prior.1, DFF.prior.2,DFF.prior.3), na.rm=T))  %>% 
   mutate(SpeedAvg=mean(c(speed.prior.1, speed.prior.2 ,speed.prior.3), na.rm=T))%>% 
   ungroup%>%
-  dplyr::select(uniqueID, FID, Length, Treatment, Activity, School.Individual, speed.FID, SpeedAvg, DFS.FID, DFSAvg)%>%
+  dplyr::select(uniqueID, FID, Length, Treatment, Genus, Species, Activity, School.Individual, speed.FID, SpeedAvg, DFS.FID, DFSAvg)%>%
   glimpse()
 
 
