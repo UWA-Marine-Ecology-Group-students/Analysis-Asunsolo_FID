@@ -410,7 +410,6 @@ str(data2)
 glimpse(data2)
 data2<- as.data.frame(data2)
 data2$sqrt.Length <- sqrt(data2$Length) #not sure which transformation to use
-
 data2$log.Length <- log(data2$Length + 1) #between log and sqrt
 data2$sqrt.DFS.prior.3 <- sqrt(data2$DFS.prior.3) # is it suggesting a relation?
 data2$sqrt.DFS.FID <- sqrt(data2$DFS.FID) # is it suggesting a relation?
