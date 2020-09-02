@@ -140,11 +140,17 @@ dat <- data_wide %>%
   # mutate(dfs.prior.1=as.numeric(dfs.prior.1))
   # group_by(unique_id)%>%
   #change that into average per uniqueID 
-  mutate(DFSAvg=mean(c(dfs.prior.1, dfs.prior.2,dfs.prior.3), na.rm=T))  %>%
+  ungroup()%>%
+  rowwise() %>% 
+  mutate(DFSAvg=mean(c(dfs.prior.1,dfs.prior.2,dfs.prior.3), na.rm=T)) %>%
+  # mutate(DFSAvg=(dfs.prior.1,dfs.prior.2,dfs.prior.3),na.rm=T))  %>%
   #change that into average per uniqueID
   mutate(speed.priorAvg=mean(c(speed.prior.1, speed.prior.2,speed.prior.3), na.rm=T))  %>%
+  mutate(scientific=paste(genus,species, sep="."))%>%
   glimpse()
 
+
+write.csv(dat, "data_wide_BG_AA.csv")
 #### PLOTS ####
 
 #how to get the data for only one variable within a column
