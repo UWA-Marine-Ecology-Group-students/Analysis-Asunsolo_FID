@@ -1,5 +1,5 @@
 
-setwd("~/Documents/Master UWA/thesis/Results")
+setwd("~/Documents/Master UWA/thesis/Results/GitHub/Analysis-Asunsolo_FID")
 
 library(plyr)
 library(tidyverse)
@@ -35,7 +35,15 @@ extract_time <- function(x) {
 better_names <- "better_names.csv" %>%
   read.csv(file = ., header = TRUE) %>%
   dplyr::mutate(across(where(is.factor), as.character)) %>%
-  dplyr::mutate(new = us_tolower(new))
+  dplyr::mutate(new = tolower(new))
+
+df_names <- better_names %>%
+  dplyr::mutate(new = tolower(new))%>%
+  dplyr::rename(`Length/FID`=old, fid_vars=new)
+
+df_names$`Length/FID`<-gsub(' +',' ',df_names$`Length/FID`) 
+
+df_names<-distinct(df_names)
 
 new_names <- better_names$new
 names(new_names) <- better_names$old
@@ -50,20 +58,31 @@ names(new_names) <- better_names$old
 
 data <- "Data output 12_August_2020_activityUpdated.xlsx" %>%
   readxl::read_excel(path = ., sheet = 1) %>%
+  dplyr::mutate(`Length/FID`=tolower(`Length/FID`))
+
+data$`Length/FID`<-gsub(' +',' ',data$`Length/FID`) 
+
+data<-data%>%
+  left_join(df_names)%>%
   dplyr::mutate(time_sec = sapply(`Length/FID`, extract_time),
                 length_m = `Length (mm)` * 1e-3,
                 speed_m_sec = length_m / time_sec,
                 measurements = speed_m_sec,
-                fid_vars = tolower(gsub("  ", " ", `Length/FID`)),
-                fid_vars = ifelse(grepl(" (", fid_vars, fixed = TRUE),
-                                  strsplit(fid_vars, " (",
-                                           fixed = TRUE)[[1]][1],
-                                  fid_vars),
-                fid_vars = new_names[fid_vars],
+                #fid_vars = tolower(gsub("  ", " ", `Length/FID`)),
+                #fid_vars = ifelse(grepl(" (", fid_vars, fixed = TRUE),
+                #                  strsplit(fid_vars, " (",
+                #                            fixed = TRUE)[[1]][1],
+                #                   fid_vars),
+                # fid_vars = new_names[fid_vars],
                 unique_id = paste0(`Fish ID`, OpCode)) %>%
   dplyr::filter(!is.na(fid_vars)) %>%
   data.frame %>%
-  dplyr::rename_with(col_tolower) 
+  dplyr::rename_with(col_tolower) %>%
+  dplyr::select(period,unique_id,family,genus,species,activity,fish_id, school_individual, measurements, fid_vars,speed_m_sec,length_m,length_mm, opcode)%>%
+  tidyr::replace_na(list(species="spp"))%>%glimpse()
+
+names(data)
+glimpse(data)
 
 for (i in seq_len(nrow(data))) {
   if (is.na(data$speed_m_sec[i]) &
@@ -73,8 +92,8 @@ for (i in seq_len(nrow(data))) {
 }
 
 # check to make sure there are no duplicates
-dup_check <- plyr::ddply(data, .(opcode, fish_id, length_fid), nrow)
-dup_check[dup_check$V1 != 1, ] # empty, good
+#dup_check <- plyr::ddply(data, .(opcode, fish_id, length_fid), nrow)
+#dup_check[dup_check$V1 != 1, ] # empty, good
 
 idmatch <- data %>%
   dplyr::select(unique_id, period, opcode,
@@ -87,29 +106,43 @@ idmatch <- data %>%
 
 length(unique(data$unique_id)) == nrow(idmatch)
 
-data_wide <- data %>%
-  tidyr::pivot_wider(id_cols = unique_id,
-                     names_from = fid_vars,
-                     values_from = measurements) %>%
-  dplyr::left_join(idmatch, by = "unique_id") %>%
-  data.frame
+test<-wide <- distinct(data)%>%
+  select(unique_id,fid_vars,measurements)%>%
+  group_by(unique_id,fid_vars)%>%
+  summarise(n=n())
 
-data_wide <- dplyr::select (data_wide, -prior_range_1, -prior_range_2, -prior_range_3, -range_1, -dfc_prior_1, -dfc_prior_2, -dfc_prior_3, -fid_range, -range_2)
+data_wide <- distinct(data)%>%
+  select(unique_id,fid_vars,measurements)%>%
+  spread(.,fid_vars,measurements)%>%
+  dplyr::select (-prior.range.1, -prior.range.2, -prior.range.3, -range.1, -dfc.prior.1, -dfc.prior.2, -dfc.prior.3, -fid.range, -range.2, -dff.prior.1, -dff.prior.2, -dff.prior.3, -dff.fid, -dff.post.fid)%>%
+  left_join(idmatch)%>%
+  dplyr::rename(Treatment=period) %>%
+  glimpse()
 
-data_wide <- dplyr::rename(data_wide, Treatment=period) 
-glimpse(data_wide)
-dim(data_wide)
-head(data_wide)
 
-CountTreat <-count(data_wide, "Treatment")
-CountTreat
+# data_wide <- data %>%
+#   tidyr::pivot_wider(id_cols = unique_id,
+#                      names_from = fid_vars,
+#                      values_from = measurements) %>%
+#   dplyr::left_join(idmatch, by = "unique_id") %>%
+#   as.data.frame%>%
+#   glimpse()
+# 
+# data_wide <- dplyr::select (data_wide, -prior.range.1, -prior.range.2, -prior.range.3, -range.1, -dfc.prior.1, -dfc.prior.2, -dfc.prior.3, -fid.range, -range.2, -dff.prior.1, -dff.prior.2, -dff.prior.3, -dff.fid, -dff.post.fid)
+# 
+# data_wide <- dplyr::rename(data_wide, Treatment=period) 
+# glimpse(data_wide)
+# dim(data_wide)
+# head(data_wide)
+
 
 dat <- data_wide %>%
-  group_by(unique_id)%>%
- #change that into average per uniqueID 
-#mutate(DFSAvg=mean(c(dfs_prior_1, dfs_prior_2,dfs_prior_3), na.rm=T))  %>%
+  # mutate(dfs.prior.1=as.numeric(dfs.prior.1))
+  # group_by(unique_id)%>%
+  #change that into average per uniqueID 
+  mutate(DFSAvg=mean(c(dfs.prior.1, dfs.prior.2,dfs.prior.3), na.rm=T))  %>%
   #change that into average per uniqueID
-#mutate(DFFAvg=mean(c(dff_prior_1, dff_prior_2,dff_prior_3), na.rm=T))  %>%
+  mutate(speed.priorAvg=mean(c(speed.prior.1, speed.prior.2,speed.prior.3), na.rm=T))  %>%
   glimpse()
 
 #### PLOTS ####
@@ -119,14 +152,16 @@ Perspex<- dplyr::filter(dat, Treatment %in% c("Perspex"))
 Perspex
 
 par(mfrow=c(1,1))
-plot(dat$Treatment, dat$fid, xlab= "Treatment", ylab= "FID (mm)")
+
+boxplot(dat$fid~dat$Treatment, xlab= "Treatment", ylab= "FID (mm)")
 
 scatter.smooth(dat$length, dat$fid, xlab= "Fish size (mm)", ylab= "FID (mm)")
 dotchart(dat$length, dat$fid, xlab= "Fish size (mm)", ylab= "FID (mm)")
 
-plot(dat$species, dat$fid, xlab= "Sp", ylab= "FID (mm)", las=3, cex= 0.2)
 
-plot(dat$genus, dat$fid, xlab= "Genus", ylab= "FID (mm)", las=3, cex= 0.2)
+boxplot(dat$fid~dat$species, xlab= "Sp", ylab= "FID (mm)", las=3, cex= 0.2)
+
+boxplot(dat$fid~dat$genus, xlab= "Genus", ylab= "FID (mm)", las=3, cex= 0.2)
 
 plot(dat$Treatment, dat$activity, xlab= "Treatment", ylab= "Type of reaction", col=
        1:length(dat$activity))
@@ -172,32 +207,32 @@ Theme1 <-    theme_bw()+
 #se.min <- function(x) (mean(x)) - se(x)
 #se.max <- function(x) (mean(x)) + se(x)
 
-datlong<- gather(dat, dff_fid, dff_post_fid, key = "DFF", value = "value", na.rm = FALSE,
-                   convert = FALSE, factor_key = FALSE) 
-#datlong.1<-gather(dat, speed.prior.3, speed.FID, key = "speed", value = "value", na.rm = FALSE,
-                    #convert = FALSE, factor_key = FALSE) 
+#datlong<- gather(dat, dff_fid, dff_post_fid, key = "DFF", value = "value", na.rm = FALSE,
+                   #convert = FALSE, factor_key = FALSE) 
+datlong.1<-gather(dat, speed.prior.3, speed.fid, key = "speed", value = "value", na.rm = FALSE,
+                    convert = FALSE, factor_key = FALSE) 
 
-ggplot(datlong,aes(x = factor(Treatment), y = value,  fill = DFF, notch=FALSE, outlier.shape = NA),alpha=0.5) +
-  stat_boxplot(geom='errorbar')+
-  geom_boxplot(outlier.color = NA, notch=FALSE)+
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4)+ #this is adding the dot for the mean
-  #scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+ # this sets 10% above the max for each on the Y scale
-  # scale_fill_manual(values = c("Fished" = "grey", "No-take" = "#1470ad"))+
-  xlab("DFF") + ylab("Distance") +
-  #annotation_custom(grob.sci)+ #adds a title
-  Theme1
-
-#get speed in the data first
-
-#ggplot(datlong.1,aes(x = factor(Treatment), y = value,  fill = speed, notch=FALSE, outlier.shape = NA),alpha=0.5) +
+#ggplot(datlong.1,aes(x = factor(Treatment), y = value,  fill = DFF, notch=FALSE, outlier.shape = NA),alpha=0.5) +
   #stat_boxplot(geom='errorbar')+
   #geom_boxplot(outlier.color = NA, notch=FALSE)+
   #stat_summary(fun.y=mean, geom="point", shape=23, size=4)+ #this is adding the dot for the mean
   #scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+ # this sets 10% above the max for each on the Y scale
   # scale_fill_manual(values = c("Fished" = "grey", "No-take" = "#1470ad"))+
- # xlab("DFF") + ylab("Distance") +
+  #xlab("DFF") + ylab("Distance") +
   #annotation_custom(grob.sci)+ #adds a title
   #Theme1
+
+#get speed in the data first
+
+ggplot(datlong.1,aes(x = factor(Treatment), y = value,  fill = speed, notch=FALSE, outlier.shape = NA),alpha=0.5) +
+  stat_boxplot(geom='errorbar')+
+  geom_boxplot(outlier.color = NA, notch=FALSE)+
+  stat_summary(fun.y=mean, geom="point", shape=23, size=4)+ #this is adding the dot for the mean
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+ # this sets 10% above the max for each on the Y scale
+   #scale_fill_manual(values = c("Fished" = "grey", "No-take" = "#1470ad"))+
+  xlab("DFF") + ylab("Distance") +
+  #annotation_custom(grob.sci)+ #adds a title
+  Theme1
 
 plot(dat$school_individual, dat$fid, xlab= "Treatment", ylab= "FID (mm)")
 boxplot(dat$fid~dat$school_individual*dat$Treatment, xlab= "", ylab= "FID (mm)", las=3, cex= 0.2)
