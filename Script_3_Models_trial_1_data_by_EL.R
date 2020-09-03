@@ -93,15 +93,15 @@ for(i in 1:length(resp.var)){
   use.dat=na.omit(dat[,c(null.vars,cont.preds,cat.preds,resp.var[i])])
   use.dat$response=use.dat[,resp.var[i]]
   Model1=gam(response~s(length,k=4,bs='cr')+
-               +s(SQRTSA,bs='cr',k=4)+s(site,bs="re"),#add site in your data!check what SQRTSA is all about, do I need it?
+               s(site,bs="re"),#add site in your data!check what SQRTSA is all about, do I need it?
              family=gaussian(link = "identity"),
              data=use.dat)
   
   model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
-                               test.fit=Model1,k=3,
+                               test.fit=Model1,k=4,
                                pred.vars.cont=cont.preds,
                                pred.vars.fact=cat.preds,
-                               null.terms="s(SQRTSA,bs='cr',k=3)+s(site,bs='re')+s(depth,bs='cr',k=3)")
+                               null.terms="s(site,bs="re",k=4)")
   
   out.list=fit.model.set(model.set)
   #names(out.list)
