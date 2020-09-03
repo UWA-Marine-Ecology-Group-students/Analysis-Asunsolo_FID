@@ -1,6 +1,11 @@
 
 setwd("~/Documents/Master UWA/thesis/Results/GitHub/Analysis-Asunsolo_FID")
 
+dat<-read.csv("data_wide_BG_AA.csv")
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 #### PLOTS ####
 
 #how to get the data for only one variable within a column
@@ -30,7 +35,8 @@ scatter.smooth(dat$dff_fid, dat$fid, xlab= "DFF FID (mm)", ylab= "FID (mm)")
 
 scatter.smooth(dat$dfs_fid, dat$fid, xlab= "DFS FID (mm)", ylab= "FID (mm)")
 
-boxplot(dat$dff_fid~ dat$dff_post_fid, xlab= "DFF FID (mm)", ylab= "DFF post FID (mm)")
+#eliminated DFF variable
+#boxplot(dat$dff.fid~ dat$dff.post.fid, xlab= "DFF FID (mm)", ylab= "DFF post FID (mm)")
 #boxplot(dat$DFF.post.FID~ dat$DFF.FID)
 
 # Theme for plotting ----
@@ -65,7 +71,7 @@ Theme1 <-    theme_bw()+
 
 #datlong<- gather(dat, dff_fid, dff_post_fid, key = "DFF", value = "value", na.rm = FALSE,
 #convert = FALSE, factor_key = FALSE) 
-datlong.1<-gather(dat, speed.prior.3, speed.fid, key = "speed", value = "value", na.rm = FALSE,
+datlong.1<-gather(dat, speed.priorAvg, speed.fid, key = "speed", value = "value", na.rm = FALSE,
                   convert = FALSE, factor_key = FALSE) 
 
 #ggplot(datlong.1,aes(x = factor(Treatment), y = value,  fill = DFF, notch=FALSE, outlier.shape = NA),alpha=0.5) +
@@ -93,27 +99,27 @@ ggplot(datlong.1,aes(x = factor(Treatment), y = value,  fill = speed, notch=FALS
 plot(dat$school_individual, dat$fid, xlab= "Treatment", ylab= "FID (mm)")
 boxplot(dat$fid~dat$school_individual*dat$Treatment, xlab= "", ylab= "FID (mm)", las=3, cex= 0.2)
 
-#scatter.smooth(dat$speed.FID, dat$FID, xlab= "Speed FID (m/s)", ylab= "FID (mm)")
+scatter.smooth(dat$speed.FID, dat$FID, xlab= "Speed FID (m/s)", ylab= "FID (mm)")
 
 #Speed prior vs during FID-- can I do a boxplot?
-#FID_speed<- ggplot(dat, aes(speed.prior.3, speed.FID))+ facet_wrap(~Treatment)+
-#  geom_point()+
-# theme_classic()
-#FID_speed
+FID_speed<- ggplot(dat, aes(speed.priorAvg, speed.fid))+ facet_wrap(~Treatment)+
+geom_point()+
+theme_classic()
+FID_speed
 
 #Speed during FID per treatment
-#FID_speed.FID<- ggplot(dat, aes(FID, speed.FID))+ facet_wrap(~Treatment)+
-#  geom_point()+
-# theme_classic()
-#FID_speed.FID
+FID_speed.FID<- ggplot(dat, aes(fid, speed.fid))+ facet_wrap(~Treatment)+
+ geom_point()+
+theme_classic()
+FID_speed.FID
 
-#FID_Length<- ggplot(dat, aes(Length, FID))+ facet_wrap(~Treatment)+
+FID_Length<- ggplot(dat, aes(length, fid))+ facet_wrap(~Treatment)+
+ geom_point()+
+ theme_classic()
+FID_Length
+
+
+FID_Length_Genus<- ggplot(dat, aes(length, fid))+ facet_wrap(~genus)+
 # geom_point()+
-# theme_classic()
-#FID_Length
-
-
-#FID_Length_Genus<- ggplot(dat, aes(Length, FID))+ facet_wrap(~Genus)+
-#  geom_point()+
-# theme_classic()
-#FID_Length_Genus
+#theme_classic()
+FID_Length_Genus
