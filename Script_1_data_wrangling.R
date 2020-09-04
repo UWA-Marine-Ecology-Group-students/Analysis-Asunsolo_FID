@@ -149,5 +149,11 @@ dat <- data_wide %>%
   mutate(scientific=paste(genus,species, sep="."))%>%
   glimpse()
 
+prefix <- sub("_.*", "", dat$opcode)
+prefix
+site <- substr(prefix, 7, 7)
+site
 
+dat$site <- site
+glimpse(dat)
 write.csv(dat, "data_wide_BG_AA.csv")
