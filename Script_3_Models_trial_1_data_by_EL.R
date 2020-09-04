@@ -67,18 +67,8 @@ null.vars="site" # use as random effect and null model
 resp.var=data$fid
 resp.var
 
-
-pdf(file="resp_vars.pdf",onefile=T)
-for(i in 1:length(resp.var)){
-  par(mfrow=c(2,1))
-  hist(data[,resp.var[i]],main=resp.var[i])
-  plot(jitter(data[,resp.var[i]]))
-}
-dev.off()
-
 resp.var=list("fid"=gaussian(link = "identity"))
 resp.var=names(resp.var)
-
 
 pdf(file="resp_var.pdf",onefile=T)
 for(r in 1:length(resp.var)){
@@ -96,18 +86,18 @@ fss.all=list()
 top.all=list()
 pdf(file="mod_fits_fid.pdf",onefile=T)
 for(i in 1:length(resp.var)){
-  use.dat=na.omit(dat[,c(null.vars,cont.preds,cat.preds,resp.var[i])])
+  use.dat=data[,c(null.vars,cont.preds,cat.preds,resp.var[i])]
   use.dat$response=use.dat[,resp.var[i]]
-  Model1=gam(response~s(length,k=4,bs='cr')+
-               s(site,bs="re"),#add site in your data!check what SQRTSA is all about, do I need it?
+  Model1=gam(response~s(log.length,k=4,bs='cr')+
+               s(site,bs="re"),
              family=gaussian(link = "identity"),
              data=use.dat)
   
-  model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
-                               test.fit=Model1,k=4,
+model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
+                               test.fit=Model1,k=3,
                                pred.vars.cont=cont.preds,
                                pred.vars.fact=cat.preds,
-                               null.terms="s(site,bs="re",k=4)")
+                               null.terms="s(site,bs='re',k=4)")
   
   out.list=fit.model.set(model.set)
   #names(out.list)
