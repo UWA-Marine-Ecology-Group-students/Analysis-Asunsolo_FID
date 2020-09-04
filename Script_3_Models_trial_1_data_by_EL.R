@@ -56,11 +56,17 @@ data$sqrt.DFSAvg <- sqrt(data$DFSAvg)
 data$log.DFSAvg <- log(data$DFSAvg + 1) 
 data$log.dfs.fid <- log(data$dfs.fid +1)
 
-#skipped the part about response variable havinf less than 80% zeros. FID values are all above zero
+#transformed variables###
 
+cont.preds=c("log.length","sqrt.speed.fid","sqrt.speed.priorAvg", "log.DFSAvg","dfs.fid") # use as continuous predictors.
+
+cat.preds= c("Treatment","genus", "scientific", "school_individual")
+
+null.vars="site" # use as random effect and null model
 # take a look at the response variables
-resp.var=data$FID
+resp.var=data$fid
 resp.var
+
 
 pdf(file="resp_vars.pdf",onefile=T)
 for(i in 1:length(resp.var)){
