@@ -19,6 +19,7 @@ boxplot(dat$fid~dat$Treatment, xlab= "Treatment", ylab= "FID (mm)")
 scatter.smooth(dat$length, dat$fid, xlab= "Fish size (mm)", ylab= "FID (mm)")
 dotchart(dat$length, dat$fid, xlab= "Fish size (mm)", ylab= "FID (mm)")
 
+boxplot(dat$activity~dat$Treatment, xlab= "Treatment", ylab= "Type of reaction") # how to plot that!
 
 boxplot(dat$fid~dat$species, xlab= "Sp", ylab= "FID (mm)", las=3, cex= 0.2)
 

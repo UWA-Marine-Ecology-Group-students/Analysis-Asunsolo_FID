@@ -16,8 +16,16 @@ library(doParallel) #this can removed?
 library(doSNOW)
 library(gamm4)
 library(RCurl) #needed to download data from GitHub
+
+
 data<- read.csv("data_wide_BG_AA.csv", na.strings = c("", NA))
 head(data)
+
+incudes.na<-data%>%
+  filter(school_individual%in%c("School"))
+
+data<-na.omit(data)#%>%
+  # filter(school_individual%in%c("School"))
 
 # install package----
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
@@ -58,7 +66,7 @@ data$log.dfs.fid <- log(data$dfs.fid +1)
 
 #transformed variables###
 
-cont.preds=c("log.length","sqrt.speed.fid","sqrt.speed.priorAvg", "log.DFSAvg","dfs.fid") # use as continuous predictors.
+cont.preds=c("log.length","sqrt.speed.fid","sqrt.speed.priorAVG", "log.DFSAvg","log.dfs.fid") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "scientific", "school_individual")
 
@@ -120,15 +128,15 @@ model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size he
     best.model=out.list$success.models[[best.model.name]]
     if(best.model.name!="null"){
       plot(best.model,all.terms=T,pages=1,residuals=T,pch=16)
-      mtext(side=3,text=resp.vars[i],outer=T)}
+      mtext(side=3,text=resp.var[i],outer=T)}
   }
 }
 dev.off()
 
-names(out.all)=resp.vars
-names(var.imp)=resp.vars
-names(top.all)=resp.vars
-names(fss.all)=resp.vars
+names(out.all)=resp.var
+names(var.imp)=resp.var
+names(top.all)=resp.var
+names(fss.all)=resp.var
 
 all.mod.fits=do.call("rbind",out.all)
 all.var.imp=do.call("rbind",var.imp)

@@ -5,6 +5,7 @@ library(plyr)
 library(tidyverse)
 library(readxl)
 library(dplyr)
+library(GlobalArchive)
 #.Library
 
 us_tolower <- function(x) {
@@ -56,16 +57,36 @@ names(new_names) <- better_names$old
 #addedrows$Period <- as.character(addedrows$Period)
 #data<- rbind(data,addedrows, match.names=FALSE ) %>%
 
-data <- "Data output 12_August_2020_activityUpdated.xlsx" %>%
+data.raw <- "Data output 12_August_2020_activityUpdated.xlsx" %>%
   readxl::read_excel(path = ., sheet = 1) %>%
-  dplyr::mutate(`Length/FID`=tolower(`Length/FID`))
+  dplyr::mutate(`Length/FID`=tolower(`Length/FID`))%>%
+  dplyr::rename(Length=`Length (mm)`)%>%
+  dplyr::mutate(Length=as.numeric(Length))%>%
+  dplyr::select(`Time (mins)`,Period,Length,OpCode,Family,Genus,Species,Activity,`Fish ID`,`Length/FID`,`School/Individual`)%>%
+  glimpse()
 
-data$`Length/FID`<-gsub(' +',' ',data$`Length/FID`) 
+data.raw$`Length/FID`<-gsub(' +',' ',data.raw$`Length/FID`) 
 
-data<-data%>%
+addedrows <- "added rows DFF DFS and Speed value zero.xlsx" %>%
+  readxl::read_excel(path = ., sheet = 1) %>%
+  dplyr::rename(Length=`Length (mm)`)%>%
+  dplyr::mutate(Length=as.numeric(Length))%>%
+  dplyr::mutate(`Length/FID`=tolower(`Length/FID`))%>%
+  dplyr::select(`Time (mins)`,Period,Length,OpCode,Family,Genus,Species,Activity,`Fish ID`,`Length/FID`,`School/Individual`)%>%
+  glimpse()
+
+# data.com<- rbind(data.raw,addedrows, match.names=FALSE ) %>%
+#   dplyr::mutate(Length=as.numeric(Length))%>%
+#   glimpse()
+
+2178+332
+
+data.com<-bind_rows(data.raw,addedrows)
+  
+data<-data.com%>%
   left_join(df_names)%>%
   dplyr::mutate(time_sec = sapply(`Length/FID`, extract_time),
-                length_m = `Length (mm)` * 1e-3,
+                length_m = Length * 1e-3,
                 speed_m_sec = length_m / time_sec,
                 measurements = speed_m_sec,
                 #fid_vars = tolower(gsub("  ", " ", `Length/FID`)),
@@ -75,6 +96,7 @@ data<-data%>%
                 #                   fid_vars),
                 # fid_vars = new_names[fid_vars],
                 unique_id = paste0(`Fish ID`, OpCode)) %>%
+  dplyr::rename(length_mm=Length)%>%
   dplyr::filter(!is.na(fid_vars)) %>%
   data.frame %>%
   dplyr::rename_with(col_tolower) %>%
@@ -156,4 +178,27 @@ site
 
 dat$site <- site
 glimpse(dat)
+
+#### trying to get min, max and mean for schools ####
+# SharkLIZARD4_CAM4_RIG1
+
+
+
+schools<- dat[dat$school_individual == 'School',] %>%
+  dplyr:: mutate (school_id = paste0(`Treatment`, opcode)) 
+
+names(schools)
+
+school.factors<-schools%>%
+  distinct(Treatment,opcode,family,genus,species,activity,school_individual,site,school_id)
+
+schools.mean<-schools%>%
+  dplyr::group_by(school_id)%>%
+  dplyr::summarise_if(is.numeric, mean, na.rm = TRUE)
+  glimpse()
+
+apply(dat$school_id, MARGIN =  2, FUN = mean)
+apply(dat$school_id, MARGIN =  2, FUN = max)
+apply(dat$school_id, MARGIN =  2, FUN = min)
+
 write.csv(dat, "data_wide_BG_AA.csv")
