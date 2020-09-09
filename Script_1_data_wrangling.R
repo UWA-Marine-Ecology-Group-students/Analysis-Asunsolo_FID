@@ -184,21 +184,21 @@ glimpse(dat)
 
 
 
-schools<- dat[dat$school_individual == 'School',] %>%
-  dplyr:: mutate (school_id = paste0(`Treatment`, opcode)) 
+#schools<- dat[dat$school_individual == 'School',] %>%
+  #dplyr:: mutate (school_id = paste0(`Treatment`, opcode)) 
 
-names(schools)
+#names(schools)
 
-school.factors<-schools%>%
-  distinct(Treatment,opcode,family,genus,species,activity,school_individual,site,school_id)
+#school.factors<-schools%>%
+ # distinct(Treatment,opcode,family,genus,species,activity,school_individual,site,school_id)
 
-schools.mean<-schools%>%
-  dplyr::group_by(school_id)%>%
-  dplyr::summarise_if(is.numeric, mean, na.rm = TRUE)
-  glimpse()
+#schools.mean<-schools%>%
+ # dplyr::group_by(school_id)%>%
+ # dplyr::summarise_if(is.numeric, mean, na.rm = TRUE)
+ # glimpse()
 
-apply(dat$school_id, MARGIN =  2, FUN = mean)
-apply(dat$school_id, MARGIN =  2, FUN = max)
-apply(dat$school_id, MARGIN =  2, FUN = min)
+#apply(dat$school_id, MARGIN =  2, FUN = mean)
+#apply(dat$school_id, MARGIN =  2, FUN = max)
+#apply(dat$school_id, MARGIN =  2, FUN = min)
 
 write.csv(dat, "data_wide_BG_AA.csv")

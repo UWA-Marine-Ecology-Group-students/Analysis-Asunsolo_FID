@@ -45,7 +45,7 @@ head(data_wide)
 head(data)
 
 dat1 <- data %>%
-  dplyr::select(Genus, Species, Treatment, Activity, School.Individual, uniqueID)%>%
+  dplyr::select(Genus, Family, Species, Treatment, Activity, School.Individual, uniqueID, OpCode)%>%
   glimpse()
 
 
@@ -54,6 +54,14 @@ dat2 <- left_join(data_wide, dat1, by="uniqueID")%>%
 
 
 dat3 <- unique(dat2)
+
+prefix <- sub("_.*", "", dat3$OpCode)
+prefix
+site <- substr(prefix, 7, 7)
+site
+
+dat3$site <- site
+glimpse(dat3)
 
 ## I think this fixed the weird stuff that was happening with the NAs
 
@@ -65,7 +73,8 @@ dat4 <- dat3 %>%
   mutate(DFFAvg=mean(c(DFF.prior.1, DFF.prior.2,DFF.prior.3), na.rm=T))  %>% 
   mutate(SpeedAvg=mean(c(speed.prior.1, speed.prior.2 ,speed.prior.3), na.rm=T))%>% 
   ungroup%>%
-  dplyr::select(uniqueID, FID, Length, Treatment, Genus, Species, Activity, School.Individual, speed.FID, SpeedAvg, DFS.FID, DFSAvg)%>%
+  dplyr::select(uniqueID, FID, Length, Treatment, Genus, Species, Activity, School.Individual, Family, DFS.FID, DFSAvg, site)%>%
+mutate(scientific=paste(Genus,Species, sep="."))%>%
   glimpse()
 
 
