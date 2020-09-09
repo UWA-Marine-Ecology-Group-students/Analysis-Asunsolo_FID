@@ -1,217 +1,218 @@
-"","uniqueID","FID","Length","Treatment","Genus","Species","Activity","School.Individual","speed.FID","SpeedAvg","DFS.FID","DFSAvg"
-"1","Diver 1aLIZARD3_CAM5_RIG3",1366.707,166.39,"Diver","Lutjanus","fulviflamma","flight","School",0.906782353,0.407473333333333,340.961,502.763333333333
-"2","Diver 1aLIZARD4_CAM2_RIG3",1623.406,150.368,"Diver","Lutjanus","fulviflamma","flight","School",0.083562,0.053779,92.67,220.052333333333
-"3","Diver 1bLIZARD3_CAM5_RIG3",1413.163,152.592,"Diver","Lutjanus","fulviflamma","flight","School",0.489311765,0.30908,205.264,365.178333333333
-"4","Diver 1bLIZARD4_CAM2_RIG3",1126.6,128.276,"Diver","Lutjanus","fulviflamma","flight","School",0.17565023,0.0440433333333333,117.798,209.412
-"5","Diver 1cLIZARD3_CAM5_RIG3",1247.625,152.379,"Diver","Lutjanus","fulviflamma","flight","School",0.609505882,0.270038,278.076,346.314
-"6","Diver 1LIZARD1_CAM4_RIG2",1148.074,113.679,"Diver","Lutjanus","sp","hide","Individual",0.150543478,0.033383111,138.654,136.649666666667
-"7","Diver 1LIZARD1_CAM4_RIG2",1148.074,113.679,"Perspex","Lutjanus","sp","hide","Individual",0.150543478,0.033383111,138.654,136.649666666667
-"8","Diver 1LIZARD1_CAM5_RIG3",574.288,133.056,"Diver","Lutjanus","sp","hide","Individual",0.097597872,0.016662,67.79,82.402
-"9","Diver 1LIZARD1_CAM6_RIG1",1641.469,190.241,"Diver","Lutjanus","fulviflamma","hide","Individual",0.206903175,0.047461,NA,207.652333333333
-"10","Diver 1LIZARD2_CAM2_RIG1",2194.811,288.111,"Diver","Lutjanus","carponotatus","C- turn","Individual",0,0.014438111,563.816,507.640666666667
-"11","Diver 1LIZARD2_CAM3_RIG1",1423.242,275.101,"Diver","Diagramma","pictum","flight","Individual",0.312298052,0.0107972223333333,158.364,76.145
-"12","Diver 1LIZARD2_CAM3_RIG1",1423.242,275.101,"Shark","Diagramma","pictum","flight","Individual",0.312298052,0.0107972223333333,158.364,76.145
-"13","Diver 1LIZARD2_CAM4_RIG1",1692.622,574.534,"Diver","Plectropomus","sp","C- turn","Individual",0.505773333,0.229127666666667,620.57,276.945
-"14","Diver 1LIZARD2_CAM5_RIG3",958.804,186.293,"Diver","Diagramma","pictum","flight","Individual",0.215350777,0.0121525556666667,0,57.3726666666667
-"15","Diver 1LIZARD3_CAM1_RIG1",1977.121,320.738,"Diver","Pomacanthus","sexstriatus","hide","Individual",0.54627,0.054358889,332.101,780.695333333333
-"16","Diver 1LIZARD3_CAM2_RIG1",2177.652,260.929,"Diver","Lutjanus","fulviflamma","flight","Individual",0.97972,0.0857332223333333,290.953,265.815
-"17","Diver 1LIZARD3_CAM3_RIG2",1722.716,NA,"Diver","Plectorhinchus","lineatus","flight","Individual",NA,0,81.32,116.0475
-"18","Diver 1LIZARD3_CAM6_RIG2",1868.547,179.456,"Diver","Lutjanus","fulviflamma","flight","Individual",0.360429167,0.1279815,331.996,367.241333333333
-"19","Diver 1LIZARD4_CAM4_RIG1",2367.082,381.094,"Diver","Plectorhinchus","chrysotaenia","flight","Individual",0.336496491,0.0791957776666667,253.815,266.819
-"20","Diver 1LIZARD4_CAM5_RIG1",2351.589,418.106,"Diver","Plectropomus","sp","flight","Individual",0.202286512,0,0,0
-"21","Diver 2LIZARD1_CAM4_RIG2",907.241,209.065,"Diver","Lutjanus","fulviflamma","hide","Individual",0.267878351,0.0218343333333333,78.671,62.954
-"22","Diver 2LIZARD1_CAM6_RIG1",1837.978,198.666,"Diver","Lutjanus","fulviflamma","hide","Individual",0.089004,0.064749111,NA,210.124
-"23","Diver 2LIZARD2_CAM2_RIG1",2250.825,240.415,"Diver","Diagramma","pictum","flight","Individual",0.343318919,0,288.632,147.531666666667
-"24","Diver 2LIZARD2_CAM5_RIG3",571.92,289.912,"Diver","Plectorhinchus","chrysotaenia","C- turn","Individual",0.184121244,0.0183163333333333,216.56,250.272333333333
-"25","Diver 2LIZARD3_CAM1_RIG1",1294.886,367.392,"Diver","Plectorhinchus","chrysotaenia","hide","Individual",0.446612143,0.0375623333333333,514.038,754.342333333333
-"26","Diver 2LIZARD3_CAM3_RIG2",1547.185,NA,"Diver","Lutjanus","fulviflamma",NA,"Individual",NA,0.0798863333333333,457.41,250.0745
-"27","Diver 2LIZARD3_CAM3_RIG2",1547.185,NA,"Diver","Lutjanus","fulviflamma","flight","Individual",NA,0.0798863333333333,457.41,250.0745
-"28","Diver 2LIZARD4_CAM4_RIG1",2754.703,270.617,"Diver","Lutjanus","carponotatus","C- turn","Individual",1.318135714,0.0231315,0,32.6536666666667
-"29","Diver 2LIZARD4_CAM4_RIG1",2754.703,270.617,"Shark","Lutjanus","carponotatus","C- turn","Individual",1.318135714,0.0231315,0,32.6536666666667
-"30","Diver 3aLIZARD1_CAM4_RIG2",1124.861,115.475,"Diver","Lutjanus","sp","hide","School",0.120094118,0,146.636,113.994333333333
-"31","Diver 3bLIZARD1_CAM4_RIG2",1122.993,127.789,"Diver","Lutjanus","sp","hide","School",0.121311765,0.006403889,188.556,159.365
-"32","Diver 3LIZARD2_CAM2_RIG1",1934.461,245.161,"Diver","Diagramma","pictum","flight","Individual",0.590918919,0.016676,321.14,306.298666666667
-"33","Diver 3LIZARD3_CAM1_RIG1",1886.119,357.676,"Diver","Pomacanthus","sexstriatus","hide","Individual",0.428095726,0,268.128,196.752666666667
-"34","Diver 3LIZARD3_CAM3_RIG2",1202.818,NA,"Diver","Lutjanus","fulviflamma","flight","Individual",0.270395522,0.0693792223333333,156.544,194.2435
-"35","Diver 4LIZARD2_CAM2_RIG1",1751.107,268.557,"Diver","Diagramma","pictum","C- turn","Individual",0.281834737,0,155.505,230.978666666667
-"36","Perspex 1aLIZARD3_CAM3_RIG2",1464.222,186.235,"Perspex","Lutjanus","fulviflamma","no response","School",NA,0.022725111,125.569,102.99
-"37","Perspex 1bLIZARD3_CAM3_RIG2",1469.987,189.507,"Perspex","Lutjanus","fulviflamma","no response","School",0,0.0137276666666667,81.835,145.551
-"38","Perspex 1cLIZARD3_CAM3_RIG2",1507.746,197.037,"Perspex","Lutjanus","fulviflamma","no response","School",NA,0.037138167,90.228,87.769
-"39","Perspex 1LIZARD1_CAM2_RIG3",711.662,161.777,"Perspex","Lutjanus","fulviflamma","no response","Individual",0.206492063,0.103856167,305.731,179.1585
-"40","Perspex 1LIZARD1_CAM4_RIG2",1027.597,110.271,"Perspex","Lutjanus","sp","no response","Individual",0,0,123.9,155.421333333333
-"41","Perspex 1LIZARD1_CAM5_RIG3",940.325,126.616,"Perspex","Lutjanus","sp","no response","Individual",0.068906024,0.107212899666667,0,31.8676666666667
-"42","Perspex 1LIZARD1_CAM6_RIG1",2255.219,216.03,"Perspex","Lutjanus","fulvus","flight","Individual",0.234131507,0.0787329443333333,491.312,371.413333333333
-"43","Perspex 1LIZARD1_CAM6_RIG1",2255.219,216.03,"Pipe","Lutjanus","fulvus","flight","Individual",0.234131507,0.0787329443333333,491.312,371.413333333333
-"44","Perspex 1LIZARD2_CAM2_RIG1",994.879,361.994,"Perspex","Diagramma","pictum","flight","Individual",1.443885,0.193796777666667,187.504,259.819666666667
-"45","Perspex 1LIZARD2_CAM3_RIG1",1484.557,334.967,"Perspex","Diagramma","pictum","no response","Individual",NA,NA,164.356,157.867
-"46","Perspex 1LIZARD2_CAM4_RIG1",1581.252,290.842,"Perspex","Diagramma","pictum","no response","Individual",0,0.0102267776666667,112.339,231.470666666667
-"47","Perspex 1LIZARD2_CAM5_RIG3",853.957,198.352,"Perspex","Diagramma","pictum","no response","Individual",0,0.01852,NA,NA
-"48","Perspex 1LIZARD3_CAM1_RIG1",911.769,365.923,"Perspex","Plectorhinchus","chrysotaenia","C- turn","Individual",1.35937,0.0475603335,268.451,191.886666666667
-"49","Perspex 1LIZARD3_CAM2_RIG1",1338.549,326.044,"Perspex","Lutjanus","carponotatus","C- turn","Individual",0.15538046,NA,529.816,NA
-"50","Perspex 1LIZARD4_CAM2_RIG3",204.854,337.489,"Perspex","Plectropomus","sp","no response","Individual",0,0,NA,0
-"51","Perspex 1LIZARD4_CAM4_RIG1",1003.186,632.7,"Perspex","Plectropomus","sp","no response","Individual",0,0,670.343,0
-"52","Perspex 1LIZARD4_CAM5_RIG1",1732.607,554.81,"Perspex","Plectorhinchus","lineatus","C- turn","Individual",0.217263842,0.134632111,374.528,291.098666666667
-"53","Perspex 2aLIZARD4_CAM2_RIG3",618.364,139.321,"Perspex","Lutjanus","fulviflamma","no response","School",0,0,146.004,153.959333333333
-"54","Perspex 2bLIZARD4_CAM2_RIG3",775.984,146.952,"Perspex","Lutjanus","fulviflamma","no response","School",0,0.0419877776666667,118.31,292.526
-"55","Perspex 2cLIZARD4_CAM2_RIG3",527.146,NA,"Perspex","Lutjanus","fulviflamma","no response","School",0,NA,218.64,NA
-"56","Perspex 2CLIZARD4_CAM2_RIG3",NA,166.978,"Perspex","Lutjanus","fulviflamma","no response","School",NA,NA,NA,NA
-"57","Perspex 2LIZARD1_CAM2_RIG3",839.79,169.91,"Perspex","Lutjanus","fulviflamma","no response","Individual",0,0.00508455566666667,314.162,302.722
-"58","Perspex 2LIZARD1_CAM4_RIG2",1113.429,204.075,"Perspex","Lutjanus","fulviflamma","no response","Individual",0,0,59.684,108.768
-"59","Perspex 2LIZARD1_CAM5_RIG3",862.17,124.233,"Perspex","Lutjanus","sp","no response","Individual",0.077893976,0.045913242,0,86.0396666666667
-"60","Perspex 2LIZARD2_CAM2_RIG1",2223.166,220.464,"Perspex","Lutjanus","fulvus","C- turn","Individual",0.748461667,0.0415503333333333,664.22,635.558333333333
-"61","Perspex 2LIZARD2_CAM5_RIG3",845.935,284.196,"Perspex","Plectorhinchus","chrysotaenia","no response","Individual",0,0.0165462223333333,NA,NA
-"62","Perspex 2LIZARD2_CAM5_RIG3",845.935,284.196,"Shark","Plectorhinchus","chrysotaenia","no response","Individual",0,0.0165462223333333,NA,NA
-"63","Perspex 2LIZARD3_CAM1_RIG1",1972.512,485.032,"Perspex","Plectorhinchus","albovittatus",NA,"Individual",NA,0,110.805,0
-"64","Perspex 2LIZARD3_CAM1_RIG1",1972.512,485.032,"Perspex","Plectorhinchus","albovittatus","no response","Individual",NA,0,110.805,0
-"65","Perspex 2LIZARD3_CAM1_RIG1",1972.512,485.032,"Pipe","Plectorhinchus","albovittatus","no response","Individual",NA,0,110.805,0
-"66","Perspex 2LIZARD3_CAM2_RIG1",846.077,243.527,"Perspex","Lutjanus","fulviflamma","C- turn","Individual",0.254408,0.086241889,308.098,185.455666666667
-"67","Perspex 2LIZARD4_CAM4_RIG1",1659.149,463.702,"Perspex","Plectorhinchus","chrysotaenia","no response","Individual",NA,0,NA,661.912
-"68","Perspex 2LIZARD4_CAM4_RIG1",1659.149,463.702,"Turtle","Plectorhinchus","chrysotaenia","no response","Individual",NA,0,NA,661.912
-"69","Perspex 2LIZARD4_CAM5_RIG1",831.105,260.48,"Perspex","Lutjanus","fulviflamma","C- turn","Individual",0.355468519,0.210076111,281.864,642.366666666667
-"70","Perspex 3aLIZARD1_CAM2_RIG3",782.315,92.776,"Perspex","Lutjanus","sp","no response","School",0,0.0262806666666667,310.596,91.434
-"71","Perspex 3aLIZARD1_CAM4_RIG2",1284.466,103.769,"Perspex","Lutjanus","sp","no response","School",0,0.022071111,226.764,131.254333333333
-"72","Perspex 3aLIZARD4_CAM5_RIG1",2149.253,243.246,"Perspex","Lutjanus","fulviflamma","flight","School",0.59135974,0.109520333,608.868,764.577
-"73","Perspex 3bLIZARD1_CAM2_RIG3",827.549,94.917,"Perspex","Lutjanus","sp","no response","School",0,NA,107.263,NA
-"74","Perspex 3bLIZARD1_CAM4_RIG2",1213.658,144.42,"Perspex","Lutjanus","sp","no response","School",0,0,97.75,122.434
-"75","Perspex 3bLIZARD4_CAM5_RIG1",2159.205,257.292,"Perspex","Lutjanus","fulviflamma","flight","School",0.20626039,0.031257111,458.381,365.134666666667
-"76","Perspex 3cLIZARD1_CAM2_RIG3",848.275,82.669,"Perspex","Lutjanus","sp","no response","School",0,0,83.733,NA
-"77","Perspex 3cLIZARD1_CAM4_RIG2",1129.939,102.232,"Perspex","Lutjanus","sp","no response","School",0,0.006556111,183.358,167.933
-"78","Perspex 3cLIZARD4_CAM5_RIG1",1858.065,264.79,"Perspex","Lutjanus","fulviflamma","flight","School",0.537731169,0.117647444666667,665.911,825.620333333333
-"79","Perspex 3LIZARD2_CAM2_RIG1",1352.928,245.944,"Perspex","Diagramma","pictum","flight","Individual",NA,0.05309,243.027,146.874333333333
-"80","Perspex 3LIZARD2_CAM2_RIG1",1352.928,245.944,"Perspex","Lutjanus","fulvus","flight","Individual",NA,0.05309,243.027,146.874333333333
-"81","Perspex 3LIZARD2_CAM5_RIG3",1037.27,237.858,"Perspex","Lutjanus","carponotatus","no response","Individual",0,0.0310824443333333,84.67,102.916666666667
-"82","Perspex 3LIZARD3_CAM2_RIG1",904.668,259.393,"Perspex","Lutjanus","fulviflamma","C- turn","Individual",0.169244444,0.106281777666667,142.893,257.734666666667
-"83","Perspex 4LIZARD2_CAM2_RIG1",1197.883,249.786,"Perspex","Diagramma","pictum","flight","Individual",NA,NA,214.81,123.122333333333
-"84","Perspex 4LIZARD2_CAM2_RIG1",1197.883,249.786,"Perspex","Lutjanus","fulvus","flight","Individual",NA,NA,214.81,123.122333333333
-"85","Perspex 4LIZARD3_CAM2_RIG1",909.594,258.433,"Perspex","Lutjanus","fulviflamma","no response","Individual",0.220987097,0.140066333333333,237.653,375.805666666667
-"86","Pipe 1aLIZARD1_CAM2_RIG3",838.987,99.517,"Pipe","Lutjanus","sp","hide","School",0.193025758,0.0753146666666667,221.122,97.508
-"87","Pipe 1aLIZARD3_CAM3_RIG2",1309.66,201.722,"Pipe","Lutjanus","fulviflamma","flight","School",0.192631098,0.113513,226.495,201.312
-"88","Pipe 1bLIZARD1_CAM2_RIG3",967.251,84.482,"Pipe","Lutjanus","sp","C- turn","School",0.065126776,0.048679,92.899,101.668
-"89","Pipe 1bLIZARD3_CAM3_RIG2",788.737,203.924,"Pipe","Lutjanus","fulviflamma","flight","School",0.091216216,0.087149,181.571,272.0635
-"90","Pipe 1cLIZARD1_CAM2_RIG3",888.758,81.308,"Pipe","Lutjanus","sp","hide","School",0.115123009,0,241.093,193.87
-"91","Pipe 1LIZARD1_CAM11_RIG1",1254.08,NA,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",0,0,177.256,183.496333333333
-"92","Pipe 1LIZARD1_CAM4_RIG2",788.226,117.374,"Pipe","Lutjanus","sp","no response","Individual",0,0,209.783,167.046
-"93","Pipe 1LIZARD1_CAM6_RIG1",1997.694,252.147,"Pipe","Diagramma","pictum","flight","Individual",0.106192771,0.063629,527.034,442.178666666667
-"94","Pipe 1LIZARD2_CAM2_RIG1",1772.207,244.881,"Pipe","Diagramma","pictum","flight","Individual",2.2447625,0.0774851113333333,146.823,162.865
-"95","Pipe 1LIZARD2_CAM3_RIG1",961.861,251.248,"Pipe","Diagramma","pictum","no response","Individual",NA,NA,114.789,188.3145
-"96","Pipe 1LIZARD2_CAM4_RIG1",1398.393,279.703,"Pipe","Diagramma","pictum","no response","Individual",0,0,219.086,255.525
-"97","Pipe 1LIZARD2_CAM5_RIG3",693.875,NA,"Pipe","Diagramma","pictum","flight","Individual",0.058742601,0.0639731665,NA,NA
-"98","Pipe 1LIZARD2_CAM5_RIG3",693.875,NA,"Perspex","Diagramma","pictum","flight","Individual",0.058742601,0.0639731665,NA,NA
-"99","Pipe 1LIZARD3_CAM1_RIG1",700.431,358.941,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",NA,0,565.624,535.081666666667
-"100","Pipe 1LIZARD3_CAM2_RIG1",2023.512,255.786,"Pipe","Lutjanus","fulviflamma","no response","Individual",NA,0.160357111,226.034,129.620333333333
-"101","Pipe 1LIZARD4_CAM2_RIG3",1158.118,NA,"Pipe","Lethrinus","atkinsoni","flight","Individual",0,0,145.764,322.361
-"102","Pipe 1LIZARD4_CAM4_RIG1",1409.628,619.959,"Pipe","Plectropomus","sp","swim backwards","Individual",0.156403883,0,179.906,214.917333333333
-"103","Pipe 1LIZARD4_CAM5_RIG1",1930.367,608.5,"Pipe","Lutjanus","bohar","flight","Individual",0.348994,0.155799,239.348,556.273
-"104","Pipe 1LIZARD5_CAM2_RIG3",659.651,403.011,"Pipe","Plectropomus","sp","no response","Individual",0,0,132.462,107.763666666667
-"105","Pipe 2LIZARD1_CAM2_RIG3",744.946,194.236,"Pipe","Lutjanus","fulviflamma","hide","Individual",0.069852161,0.048986778,167.103,182.409
-"106","Pipe 2LIZARD1_CAM2_RIG3",744.946,194.236,"Perspex","Lutjanus","fulviflamma","hide","Individual",0.069852161,0.048986778,167.103,182.409
-"107","Pipe 2LIZARD1_CAM4_RIG2",1001.676,191.812,"Pipe","Lutjanus","fulviflamma","hide","Individual",0.124378,0.0228954443333333,285.806,191.697
-"108","Pipe 2LIZARD1_CAM4_RIG2",1001.676,191.812,"Pipe","Lutjanus","sp","hide","Individual",0.124378,0.0228954443333333,285.806,191.697
-"109","Pipe 2LIZARD1_CAM4_RIG2",1001.676,191.812,"Diver","Lutjanus","fulviflamma","hide","Individual",0.124378,0.0228954443333333,285.806,191.697
-"110","Pipe 2LIZARD1_CAM6_RIG1",2214.918,239.683,"Pipe","Diagramma","pictum","flight","Individual",0.177294578,0.0816903333333333,350.723,299.915666666667
-"111","Pipe 2LIZARD2_CAM2_RIG1",1714.327,243.81,"Pipe","Diagramma","pictum","C- turn","Individual",1.497311111,0.117274222333333,104.658,112.508333333333
-"112","Pipe 2LIZARD2_CAM3_RIG1",1903.993,266.391,"Pipe","Diagramma","pictum","C- turn","Individual",0.081474286,0.0166996666666667,94.727,100.535
-"113","Pipe 2LIZARD2_CAM4_RIG1",2172.642,194.865,"Pipe","Diagramma","pictum","no response","Individual",0,0,119.869,154.936666666667
-"114","Pipe 2LIZARD2_CAM4_RIG1",2172.642,194.865,"Pipe","Lutjanus","sp","no response","Individual",0,0,119.869,154.936666666667
-"115","Pipe 2LIZARD2_CAM5_RIG3",551.083,NA,"Pipe","Plectorhinchus","chrysotaenia","flight","Individual",0.128800897,0,0,0
-"116","Pipe 2LIZARD3_CAM1_RIG1",1549.525,487.285,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",NA,0,939.995,522.809333333333
-"117","Pipe 2LIZARD3_CAM1_RIG1",1549.525,487.285,"Pipe","Plectorhinchus","albovittatus","no response","Individual",NA,0,939.995,522.809333333333
-"118","Pipe 2LIZARD3_CAM2_RIG1",1016.137,376.39,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",0,0,224.625,154.809333333333
-"119","Pipe 2LIZARD4_CAM2_RIG3",419.922,303.778,"Pipe","Plectropomus","sp","no response","Individual",NA,0,NA,NA
-"120","Pipe 2LIZARD4_CAM4_RIG1",1484.876,410.864,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",0,0,765.029,558.783666666667
-"121","Pipe 3aLIZARD1_CAM4_RIG2",915.496,123.694,"Pipe","Lutjanus","sp","hide","School",0.23534127,0.0232395553333333,128.764,233.466
-"122","Pipe 3bLIZARD1_CAM4_RIG2",843.308,112.847,"Pipe","Lutjanus","sp","hide","School",0.059787302,0.0107433335,67.229,94.995
-"123","Pipe 3cLIZARD1_CAM4_RIG2",890.862,104.495,"Pipe","Lutjanus","sp","hide","School",0.209901587,0.056693,89.455,141.875333333333
-"124","Pipe 3LIZARD2_CAM5_RIG3",1083.358,NA,"Pipe","Lutjanus","carponotatus","flight","Individual",0.404039474,0.013877,0,0
-"125","Pipe 3LIZARD3_CAM1_RIG1",1188.836,NA,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",NA,0,571.542,NA
-"126","Shark 1LIZARD1_CAM4_RIG2",1069.708,114.044,"Shark","Lutjanus","sp","no response","Individual",0.028106283,0.007545,146.72,136.281
-"127","Shark 1LIZARD1_CAM4_RIG2",1069.708,114.044,"Shark","Lutjanus","sp","no response","School",0.028106283,0.007545,146.72,136.281
-"128","Shark 1LIZARD1_CAM6_RIG1",2628.792,215.732,"Shark","Lutjanus","fulvus","flight","Individual",0.29946,0.0979766666666667,211.654,122.732333333333
-"129","Shark 1LIZARD2_CAM2_RIG1",1927.475,239.945,"Shark","Diagramma","pictum","flight","Individual",0.238661224,0,315.372,290.364666666667
-"130","Shark 1LIZARD2_CAM3_RIG1",1327.082,248.576,"Shark","Diagramma","pictum","C- turn","Individual",0.268691732,0.106798,217.371,190.7305
-"131","Shark 1LIZARD2_CAM4_RIG1",1891.677,290.038,"Shark","Lutjanus","fulviflamma","C- turn","Individual",0.2862975,0.0226323333333333,418.414,427.535
-"132","Shark 1LIZARD2_CAM4_RIG1",1891.677,290.038,"Turtle","Lutjanus","fulviflamma","C- turn","Individual",0.2862975,0.0226323333333333,418.414,427.535
-"133","Shark 1LIZARD2_CAM5_RIG3",1099.562,191.864,"Shark","Diagramma","pictum","C- turn","Individual",0.065816047,0.080660889,NA,325.675
-"134","Shark 1LIZARD3_CAM1_RIG1",521.595,378.589,"Shark","Plectorhinchus","chrysotaenia","flight","Individual",1.322216981,0.0572651113333333,1239.558,997.739333333333
-"135","Shark 1LIZARD3_CAM1_RIG1",521.595,378.589,"Shark","Pomacanthus","sexstriatus","flight","Individual",1.322216981,0.0572651113333333,1239.558,997.739333333333
-"136","Shark 1LIZARD3_CAM2_RIG1",1996.874,399.138,"Shark","Pomacanthus","sexstriatus","flight","Individual",0.348912692,0.042548111,769.035,969.215666666667
-"137","Shark 1LIZARD3_CAM3_RIG2",1178.849,271.971,"Shark","Plectorhinchus","chrysotaenia","hide","Individual",0.251672038,0.019814,143.23,132.3475
-"138","Shark 1LIZARD3_CAM5_RIG3",1185.486,274.712,"Shark","Plectorhinchus","lineatus","flight","Individual",0.459763158,0,52.247,46.8733333333333
-"139","Shark 1LIZARD3_CAM6_RIG2",802.378,248.028,"Shark","Plectorhinchus","chrysotaenia","no response","Individual",0,0,137.727,150.247666666667
-"140","Shark 1LIZARD3_CAM6_RIG2",802.378,248.028,"Turtle","Plectorhinchus","chrysotaenia","no response","Individual",0,0,137.727,150.247666666667
-"141","Shark 1LIZARD4_CAM2_RIG3",766.551,NA,"Shark","Plectropomus","sp","hide","Individual",NA,NA,256.505,341.491
-"142","Shark 1LIZARD4_CAM4_RIG1",1695.648,520.609,"Shark","Plectropomus","sp","flight","Individual",0.63108037,0.1188103335,129.417,267.612333333333
-"143","Shark 1LIZARD4_CAM5_RIG1",1210.33,402.95,"Shark","Plectorhinchus","chrysotaenia","flight","Individual",0.295712262,0.0397333333333333,224.296,375.326
-"144","Shark 1LIZARD5_CAM1_RIG2",1011.275,390.817,"Shark","Plectropomus","sp","flight","Individual",0.2393696,0.00974255566666667,35.038,79.4343333333333
-"145","Shark 2LIZARD1_CAM4_RIG2",1592.574,211.539,"Shark","Lutjanus","fulviflamma","flight","Individual",0.16073318,0.0222883333333333,263.014,130.175
-"146","Shark 2LIZARD1_CAM4_RIG2",1592.574,211.539,"Turtle","Lutjanus","fulviflamma","flight","Individual",0.16073318,0.0222883333333333,263.014,130.175
-"147","Shark 2LIZARD1_CAM6_RIG1",2277.881,163.1,"Shark","Lutjanus","fulviflamma","flight","Individual",0.223373295,0.220502333333333,100.373,116.173
-"148","Shark 2LIZARD2_CAM3_RIG1",1670.8,258.572,"Shark","Diagramma","pictum","flight","Individual",0.199788078,0.033691,265.135,262.4485
-"149","Shark 2LIZARD2_CAM4_RIG1",1587.086,312.699,"Shark","Diagramma","pictum","no response","Individual",0,0,101.942,157.729
-"150","Shark 2LIZARD2_CAM4_RIG1",1587.086,312.699,"Turtle","Diagramma","pictum","no response","Individual",0,0,101.942,157.729
-"151","Shark 2LIZARD2_CAM5_RIG3",1278.937,307.483,"Shark","Plectorhinchus","chrysotaenia","no response","Individual",NA,0.0123713333333333,499.087,498.751333333333
-"152","Shark 2LIZARD3_CAM1_RIG1",1558.45,NA,"Shark","Plectorhinchus","albovittatus","flight","Individual",1.804476923,0.038171889,1064.438,173.9005
-"153","Shark 2LIZARD3_CAM1_RIG1",1558.45,NA,"Shark","Plectorhinchus","chrysotaenia","flight","Individual",1.804476923,0.038171889,1064.438,173.9005
-"154","Shark 2LIZARD3_CAM3_RIG2",1119.024,307.64,"Shark","Plectorhinchus","albovittatus","no response","Individual",0,0,NA,NA
-"155","Shark 2LIZARD3_CAM3_RIG2",1119.024,307.64,"Shark","Plectorhinchus","sp","no response","Individual",0,0,NA,NA
-"156","Shark 2LIZARD4_CAM2_RIG3",613.29,NA,"Shark","Plectropomus","sp","flight","Individual",NA,NA,412.948,48.447
-"157","Shark 2LIZARD4_CAM2_RIG3",613.29,NA,"Shark","Plectropomus","sp","flight",NA,NA,NA,412.948,48.447
-"158","Shark 2LIZARD4_CAM4_RIG1",1963.081,437.9,"Shark","Plectorhinchus","chrysotaenia","flight","Individual",0.279903913,0.0257612223333333,797.49,167.912666666667
-"159","Shark 2LIZARD4_CAM5_RIG1",2069.6,348.225,"Shark","Plectorhinchus","lineatus","flight","Individual",0.193540872,0,228.779,288.457333333333
-"160","Shark 2LIZARD4_CAM5_RIG1",2069.6,348.225,"Pipe","Plectorhinchus","lineatus","flight","Individual",0.193540872,0,228.779,288.457333333333
-"161","Shark 3aLIZARD1_CAM4_RIG2",1111.839,99.465,"Shark","Lutjanus","sp","hide","School",0.040559686,0.00954066666666667,77.347,125.612666666667
-"162","Shark 3aLIZARD4_CAM2_RIG3",761.867,NA,"Shark","Lutjanus","fulviflamma","flight","School",NA,NA,301.622,282.32
-"163","Shark 3bLIZARD1_CAM4_RIG2",1164.206,118.536,"Shark","Lutjanus","sp","hide","School",0,0,91.43,121.021333333333
-"164","Shark 3bLIZARD4_CAM2_RIG3",784.852,NA,"Shark","Lutjanus","fulviflamma","flight","School",NA,NA,223.737,225.212
-"165","Shark 3LIZARD2_CAM3_RIG1",1895.173,237.704,"Shark","Diagramma","pictum","flight","Individual",0.034018491,0.0642805,332.596,187.997
-"166","Shark 3LIZARD3_CAM1_RIG1",1361.233,382.229,"Shark","Plectorhinchus","chrysotaenia","hide","Individual",0.642214953,0.029399111,298.225,281.827333333333
-"167","Shark 3LIZARD4_CAM4_RIG1",2357.937,739.431,"Shark","Lutjanus","bohar","flight","Individual",0.505414371,0.120573667,577.773,246.043666666667
-"168","Shark 3LIZARD4_CAM4_RIG1",2357.937,739.431,"Perspex","Lutjanus","bohar","flight","Individual",0.505414371,0.120573667,577.773,246.043666666667
-"169","Shark 4aLIZARD4_CAM4_RIG1",1177.173,237.438,"Shark","Lutjanus","fulviflamma","flight","School",0.166897297,0.149250333333333,103.913,380.335
-"170","Shark 4bLIZARD4_CAM4_RIG1",1074.558,210.528,"Shark","Lutjanus","fulviflamma","flight","School",0.415754054,0.184240333333333,194.848,441.09
-"171","Shark 4cLIZARD4_CAM4_RIG1",1037.583,215.495,"Shark","Lutjanus","fulviflamma","flight","School",0.358875676,0.158279333333333,172.845,374.892333333333
-"172","Shark 4LIZARD3_CAM1_RIG1",1056.439,375.78,"Shark","Plectorhinchus","chrysotaenia","flight","Individual",1.13289,0.0485997776666667,565.009,781.772
-"173","Shark 5LIZARD3_CAM1_RIG1",1845.513,372.746,"Shark","Pomacanthus","sexstriatus","flight","Individual",1.303314,0,700.444,789.549
-"174","Shark 5LIZARD3_CAM1_RIG1",1845.513,372.746,"Shark","Plectorhinchus","chrysotaenia","flight","Individual",1.303314,0,700.444,789.549
-"175","Shark 5LIZARD4_CAM4_RIG1",1067.769,467.334,"Shark","Plectropomus","sp","flight","Individual",0.392655466,0.129738333,0,0
-"176","Shark 6LIZARD3_CAM1_RIG1",1069.408,255.474,"Shark","Lutjanus","carponotatus","flight","Individual",0.408650704,NA,515.206,NA
-"177","Turtle 1aLIZARD1_CAM2_RIG3",1048.079,102.173,"Turtle","Lutjanus","sp","hide","School",0.140405,0.014154889,44.613,69.4933333333333
-"178","Turtle 1aLIZARD1_CAM6_RIG1",2058.448,NA,"Turtle","Lutjanus","fulviflamma","no response","School",0,0.327274555666667,81.835,152.615333333333
-"179","Turtle 1aLIZARD1_CAM6_RIG1",2058.448,NA,"Turtle","Lutjanus","fulviflamma","no response","Individual",0,0.327274555666667,81.835,152.615333333333
-"180","Turtle 1aLIZARD3_CAM3_RIG2",1186.2,171.029,"Turtle","Lutjanus","fulviflamma","no response","School",0.102297674,0.046833,89.843,111.053
-"181","Turtle 1aLIZARD4_CAM2_RIG3",541.402,145.85,"Turtle","Lutjanus","fulviflamma","flight","School",NA,NA,NA,NA
-"182","Turtle 1bLIZARD1_CAM2_RIG3",882.193,80.347,"Turtle","Lutjanus","sp","hide","School",0.219911321,0.057581889,0,153.343333333333
-"183","Turtle 1bLIZARD1_CAM6_RIG1",1973.807,NA,"Turtle","Lutjanus","fulviflamma","no response","Individual",0,0,118.751,124.844
-"184","Turtle 1bLIZARD1_CAM6_RIG1",1973.807,NA,"Turtle","Lutjanus","fulviflamma","no response","School",0,0,118.751,124.844
-"185","Turtle 1bLIZARD3_CAM3_RIG2",1053.9,202.626,"Turtle","Lutjanus","fulviflamma","no response","School",0.301309302,0.068876222,186.971,332.064
-"186","Turtle 1bLIZARD4_CAM2_RIG3",513.276,117.593,"Turtle","Lutjanus","fulviflamma","flight","School",NA,NA,NA,NA
-"187","Turtle 1cLIZARD1_CAM2_RIG3",971.661,NA,"Turtle","Lutjanus","sp","hide","School",0.108161667,0.036848684,56.098,54.8563333333333
-"188","Turtle 1cLIZARD1_CAM6_RIG1",1963.001,NA,"Turtle","Lutjanus","fulviflamma","no response","School",0,0.170276777666667,90.03,94.3646666666667
-"189","Turtle 1cLIZARD1_CAM6_RIG1",1963.001,NA,"Turtle","Lutjanus","fulviflamma","no response","Individual",0,0.170276777666667,90.03,94.3646666666667
-"190","Turtle 1cLIZARD3_CAM3_RIG2",1245.404,176.943,"Turtle","Lutjanus","fulviflamma","no response","School",NA,0.036129333,241.412,119.6215
-"191","Turtle 1cLIZARD4_CAM2_RIG3",767.609,160.069,"Turtle","Lutjanus","fulviflamma","flight","School",NA,NA,NA,NA
-"192","Turtle 1LIZARD1_CAM10_RIG2",1545.256,468.305,"Turtle","Plectorhinchus","albovittatus","no response","Individual",0,0,0,0
-"193","Turtle 1LIZARD1_CAM4_RIG2",1281.045,117.127,"Turtle","Lutjanus","sp","no response","Individual",0,0,204.061,169.320666666667
-"194","Turtle 1LIZARD2_CAM4_RIG1",1978.433,270.445,"Turtle","Diagramma","pictum","no response","Individual",0,0,312.447,290.228
-"195","Turtle 1LIZARD2_CAM5_RIG3",730.639,286.713,"Turtle","Plectorhinchus","chrysotaenia","flight","Individual",0.248800855,0,529.501,501.207666666667
-"196","Turtle 1LIZARD2_CAM7_RIG1",1316.457,255.923,"Turtle","Diagramma","pictum","no response","Individual",0,0,268.937,275.295333333333
-"197","Turtle 1LIZARD3_CAM1_RIG1",2125.014,283.216,"Turtle","Pomacanthus","sexstriatus","flight","Individual",0.29385625,0.059793222,409.6,576.323666666667
-"198","Turtle 1LIZARD3_CAM2_RIG1",2430.997,566.31,"Turtle","Lutjanus","bohar","Passing","Individual",0.568014545,0.3161368335,967.19,581.243
-"199","Turtle 1LIZARD3_CAM5_RIG3",1217.788,323.448,"Turtle","Plectorhinchus","lineatus","flight","Individual",0.072088415,0,86.46,114.852
-"200","Turtle 1LIZARD3_CAM5_RIG3",1217.788,323.448,"Diver","Plectorhinchus","lineatus","flight","Individual",0.072088415,0,86.46,114.852
-"201","Turtle 1LIZARD3_CAM6_RIG2",1045.55,320.197,"Turtle","Plectorhinchus","lineatus","hide","Individual",0.091357391,0.0685097486666667,185.956,255.067666666667
-"202","Turtle 1LIZARD4_CAM4_RIG1",1523.649,597.735,"Turtle","Plectropomus","sp","no response","Individual",0,0,0,0
-"203","Turtle 1LIZARD4_CAM5_RIG1",1803.346,216.73,"Turtle","Lutjanus","carponotatus","flight","Individual",0.379042105,0.127909209333333,582.225,376.882
-"204","Turtle 1LIZARD4_CAM7_RIG2",247.706,258.597,"Turtle","Plectropomus","sp","no response","Individual",0,0,0,0
-"205","Turtle 2LIZARD1_CAM4_RIG2",1521.913,195.276,"Turtle","Lutjanus","fulviflamma","flight","Individual",0.179885714,0.0139746666666667,209.254,279.906666666667
-"206","Turtle 2LIZARD2_CAM4_RIG1",2286.263,271.41,"Turtle","Diagramma","pictum","no response","Individual",0,0,290.802,291.9
-"207","Turtle 2LIZARD2_CAM5_RIG3",668.563,207.29,"Turtle","Diagramma","pictum","flight","Individual",0.274965812,0.0808343333333333,349.892,460.104666666667
-"208","Turtle 2LIZARD3_CAM1_RIG1",2938.462,441.532,"Turtle","Plectorhinchus","albovittatus","flight","Individual",0.122078199,0,128.525,118.017666666667
-"209","Turtle 2LIZARD3_CAM1_RIG1",2938.462,441.532,"Turtle","Pomacanthus","sexstriatus","flight","Individual",0.122078199,0,128.525,118.017666666667
-"210","Turtle 2LIZARD3_CAM2_RIG1",1563.113,388.293,"Turtle","Plectorhinchus","chrysotaenia","flight","Individual",0.34056,0,94.049,158.857666666667
-"211","Turtle 2LIZARD3_CAM5_RIG3",650.477,258.726,"Turtle","Plectorhinchus","chrysotaenia","hide","Individual",0.114271889,0,145.165,162.306333333333
-"212","Turtle 2LIZARD3_CAM5_RIG3",650.477,258.726,"Diver","Plectorhinchus","chrysotaenia","hide","Individual",0.114271889,0,145.165,162.306333333333
-"213","Turtle 2LIZARD3_CAM6_RIG2",611.939,243.689,"Turtle","Plectorhinchus","chrysotaenia","hide","Individual",0.556426471,0,353.702,330.946666666667
-"214","Turtle 2LIZARD4_CAM4_RIG1",1643.589,414.442,"Turtle","Plectorhinchus","chrysotaenia","flight","Individual",0.397518966,0,406.48,422.973666666667
-"215","Turtle 3LIZARD1_CAM4_RIG2",1366.967,224.279,"Turtle","Lutjanus","carponotatus","C- turn","Individual",0.070106452,0,393.64,398.184333333333
-"216","Turtle 3LIZARD2_CAM5_RIG3",652.84,178.558,"Turtle","Diagramma","pictum","flight","Individual",0.108500855,0.078445,505.385,481.298666666667
+"","uniqueID","FID","Length","Treatment","Genus","Species","Activity","School.Individual","Family","DFS.FID","DFSAvg","site","scientific"
+"1","Diver 1aLIZARD3_CAM5_RIG3",1366.707,166.39,"Diver","Lutjanus","fulviflamma","flight","School","Lutjanidae",340.961,502.763333333333,"3","Lutjanus.fulviflamma"
+"2","Diver 1aLIZARD4_CAM2_RIG3",1623.406,150.368,"Diver","Lutjanus","fulviflamma","flight","School","Lutjanidae",92.67,220.052333333333,"4","Lutjanus.fulviflamma"
+"3","Diver 1bLIZARD3_CAM5_RIG3",1413.163,152.592,"Diver","Lutjanus","fulviflamma","flight","School","Lutjanidae",205.264,365.178333333333,"3","Lutjanus.fulviflamma"
+"4","Diver 1bLIZARD4_CAM2_RIG3",1126.6,128.276,"Diver","Lutjanus","fulviflamma","flight","School","Lutjanidae",117.798,209.412,"4","Lutjanus.fulviflamma"
+"5","Diver 1cLIZARD3_CAM5_RIG3",1247.625,152.379,"Diver","Lutjanus","fulviflamma","flight","School","Lutjanidae",278.076,346.314,"3","Lutjanus.fulviflamma"
+"6","Diver 1LIZARD1_CAM4_RIG2",1148.074,113.679,"Diver","Lutjanus","sp","hide","Individual","Lutjanidae",138.654,136.649666666667,"1","Lutjanus.sp"
+"7","Diver 1LIZARD1_CAM4_RIG2",1148.074,113.679,"Perspex","Lutjanus","sp","hide","Individual","Lutjanidae",138.654,136.649666666667,"1","Lutjanus.sp"
+"8","Diver 1LIZARD1_CAM5_RIG3",574.288,133.056,"Diver","Lutjanus","sp","hide","Individual","Lutjanidae",67.79,82.402,"1","Lutjanus.sp"
+"9","Diver 1LIZARD1_CAM6_RIG1",1641.469,190.241,"Diver","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",NA,207.652333333333,"1","Lutjanus.fulviflamma"
+"10","Diver 1LIZARD2_CAM2_RIG1",2194.811,288.111,"Diver","Lutjanus","carponotatus","C- turn","Individual","Lutjanidae",563.816,507.640666666667,"2","Lutjanus.carponotatus"
+"11","Diver 1LIZARD2_CAM3_RIG1",1423.242,275.101,"Diver","Diagramma","pictum","flight","Individual","Haemulidae",158.364,76.145,"2","Diagramma.pictum"
+"12","Diver 1LIZARD2_CAM3_RIG1",1423.242,275.101,"Shark","Diagramma","pictum","flight","Individual","Haemulidae",158.364,76.145,"2","Diagramma.pictum"
+"13","Diver 1LIZARD2_CAM4_RIG1",1692.622,574.534,"Diver","Plectropomus","sp","C- turn","Individual","Serranidae",620.57,276.945,"2","Plectropomus.sp"
+"14","Diver 1LIZARD2_CAM5_RIG3",958.804,186.293,"Diver","Diagramma","pictum","flight","Individual","Haemulidae",0,57.3726666666667,"2","Diagramma.pictum"
+"15","Diver 1LIZARD3_CAM1_RIG1",1977.121,320.738,"Diver","Pomacanthus","sexstriatus","hide","Individual","Pomacanthidae",332.101,780.695333333333,"3","Pomacanthus.sexstriatus"
+"16","Diver 1LIZARD3_CAM2_RIG1",2177.652,260.929,"Diver","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",290.953,265.815,"3","Lutjanus.fulviflamma"
+"17","Diver 1LIZARD3_CAM3_RIG2",1722.716,NA,"Diver","Plectorhinchus","lineatus","flight","Individual","Haemulidae",81.32,116.0475,"3","Plectorhinchus.lineatus"
+"18","Diver 1LIZARD3_CAM6_RIG2",1868.547,179.456,"Diver","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",331.996,367.241333333333,"3","Lutjanus.fulviflamma"
+"19","Diver 1LIZARD4_CAM4_RIG1",2367.082,381.094,"Diver","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",253.815,266.819,"4","Plectorhinchus.chrysotaenia"
+"20","Diver 1LIZARD4_CAM5_RIG1",2351.589,418.106,"Diver","Plectropomus","sp","flight","Individual","Serranidae",0,0,"4","Plectropomus.sp"
+"21","Diver 2LIZARD1_CAM4_RIG2",907.241,209.065,"Diver","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",78.671,62.954,"1","Lutjanus.fulviflamma"
+"22","Diver 2LIZARD1_CAM6_RIG1",1837.978,198.666,"Diver","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",NA,210.124,"1","Lutjanus.fulviflamma"
+"23","Diver 2LIZARD2_CAM2_RIG1",2250.825,240.415,"Diver","Diagramma","pictum","flight","Individual","Haemulidae",288.632,147.531666666667,"2","Diagramma.pictum"
+"24","Diver 2LIZARD2_CAM5_RIG3",571.92,289.912,"Diver","Plectorhinchus","chrysotaenia","C- turn","Individual","Haemulidae",216.56,250.272333333333,"2","Plectorhinchus.chrysotaenia"
+"25","Diver 2LIZARD3_CAM1_RIG1",1294.886,367.392,"Diver","Plectorhinchus","chrysotaenia","hide","Individual","Haemulidae",514.038,754.342333333333,"3","Plectorhinchus.chrysotaenia"
+"26","Diver 2LIZARD3_CAM3_RIG2",1547.185,NA,"Diver","Lutjanus","fulviflamma",NA,"Individual","Lutjanidae",457.41,250.0745,"3","Lutjanus.fulviflamma"
+"27","Diver 2LIZARD3_CAM3_RIG2",1547.185,NA,"Diver","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",457.41,250.0745,"3","Lutjanus.fulviflamma"
+"28","Diver 2LIZARD4_CAM4_RIG1",2754.703,270.617,"Diver","Lutjanus","carponotatus","C- turn","Individual","Lutjanidae",0,32.6536666666667,"4","Lutjanus.carponotatus"
+"29","Diver 2LIZARD4_CAM4_RIG1",2754.703,270.617,"Shark","Lutjanus","carponotatus","C- turn","Individual","Lutjanidae",0,32.6536666666667,"4","Lutjanus.carponotatus"
+"30","Diver 3aLIZARD1_CAM4_RIG2",1124.861,115.475,"Diver","Lutjanus","sp","hide","School","Lutjanidae",146.636,113.994333333333,"1","Lutjanus.sp"
+"31","Diver 3bLIZARD1_CAM4_RIG2",1122.993,127.789,"Diver","Lutjanus","sp","hide","School","Lutjanidae",188.556,159.365,"1","Lutjanus.sp"
+"32","Diver 3LIZARD2_CAM2_RIG1",1934.461,245.161,"Diver","Diagramma","pictum","flight","Individual","Haemulidae",321.14,306.298666666667,"2","Diagramma.pictum"
+"33","Diver 3LIZARD3_CAM1_RIG1",1886.119,357.676,"Diver","Pomacanthus","sexstriatus","hide","Individual","Pomacanthidae",268.128,196.752666666667,"3","Pomacanthus.sexstriatus"
+"34","Diver 3LIZARD3_CAM3_RIG2",1202.818,NA,"Diver","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",156.544,194.2435,"3","Lutjanus.fulviflamma"
+"35","Diver 4LIZARD2_CAM2_RIG1",1751.107,268.557,"Diver","Diagramma","pictum","C- turn","Individual","Haemulidae",155.505,230.978666666667,"2","Diagramma.pictum"
+"36","Perspex 1aLIZARD3_CAM3_RIG2",1464.222,186.235,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",125.569,102.99,"3","Lutjanus.fulviflamma"
+"37","Perspex 1bLIZARD3_CAM3_RIG2",1469.987,189.507,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",81.835,145.551,"3","Lutjanus.fulviflamma"
+"38","Perspex 1cLIZARD3_CAM3_RIG2",1507.746,197.037,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",90.228,87.769,"3","Lutjanus.fulviflamma"
+"39","Perspex 1LIZARD1_CAM2_RIG3",711.662,161.777,"Perspex","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",305.731,179.1585,"1","Lutjanus.fulviflamma"
+"40","Perspex 1LIZARD1_CAM4_RIG2",1027.597,110.271,"Perspex","Lutjanus","sp","no response","Individual","Lutjanidae",123.9,155.421333333333,"1","Lutjanus.sp"
+"41","Perspex 1LIZARD1_CAM5_RIG3",940.325,126.616,"Perspex","Lutjanus","sp","no response","Individual","Lutjanidae",0,31.8676666666667,"1","Lutjanus.sp"
+"42","Perspex 1LIZARD1_CAM6_RIG1",2255.219,216.03,"Perspex","Lutjanus","fulvus","flight","Individual","Lutjanidae",491.312,371.413333333333,"1","Lutjanus.fulvus"
+"43","Perspex 1LIZARD1_CAM6_RIG1",2255.219,216.03,"Pipe","Lutjanus","fulvus","flight","Individual","Lutjanidae",491.312,371.413333333333,"1","Lutjanus.fulvus"
+"44","Perspex 1LIZARD2_CAM2_RIG1",994.879,361.994,"Perspex","Diagramma","pictum","flight","Individual","Haemulidae",187.504,259.819666666667,"2","Diagramma.pictum"
+"45","Perspex 1LIZARD2_CAM3_RIG1",1484.557,334.967,"Perspex","Diagramma","pictum","no response","Individual","Haemulidae",164.356,157.867,"2","Diagramma.pictum"
+"46","Perspex 1LIZARD2_CAM4_RIG1",1581.252,290.842,"Perspex","Diagramma","pictum","no response","Individual","Haemulidae",112.339,231.470666666667,"2","Diagramma.pictum"
+"47","Perspex 1LIZARD2_CAM5_RIG3",853.957,198.352,"Perspex","Diagramma","pictum","no response","Individual","Haemulidae",NA,NA,"2","Diagramma.pictum"
+"48","Perspex 1LIZARD3_CAM1_RIG1",911.769,365.923,"Perspex","Plectorhinchus","chrysotaenia","C- turn","Individual","Haemulidae",268.451,191.886666666667,"3","Plectorhinchus.chrysotaenia"
+"49","Perspex 1LIZARD3_CAM2_RIG1",1338.549,326.044,"Perspex","Lutjanus","carponotatus","C- turn","Individual","Lutjanidae",529.816,NA,"3","Lutjanus.carponotatus"
+"50","Perspex 1LIZARD4_CAM2_RIG3",204.854,337.489,"Perspex","Plectropomus","sp","no response","Individual","Serranidae",NA,0,"4","Plectropomus.sp"
+"51","Perspex 1LIZARD4_CAM4_RIG1",1003.186,632.7,"Perspex","Plectropomus","sp","no response","Individual","Serranidae",670.343,0,"4","Plectropomus.sp"
+"52","Perspex 1LIZARD4_CAM5_RIG1",1732.607,554.81,"Perspex","Plectorhinchus","lineatus","C- turn","Individual","Haemulidae",374.528,291.098666666667,"4","Plectorhinchus.lineatus"
+"53","Perspex 2aLIZARD4_CAM2_RIG3",618.364,139.321,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",146.004,153.959333333333,"4","Lutjanus.fulviflamma"
+"54","Perspex 2bLIZARD4_CAM2_RIG3",775.984,146.952,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",118.31,292.526,"4","Lutjanus.fulviflamma"
+"55","Perspex 2cLIZARD4_CAM2_RIG3",527.146,NA,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",218.64,NA,"4","Lutjanus.fulviflamma"
+"56","Perspex 2CLIZARD4_CAM2_RIG3",NA,166.978,"Perspex","Lutjanus","fulviflamma","no response","School","Lutjanidae",NA,NA,"4","Lutjanus.fulviflamma"
+"57","Perspex 2LIZARD1_CAM2_RIG3",839.79,169.91,"Perspex","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",314.162,302.722,"1","Lutjanus.fulviflamma"
+"58","Perspex 2LIZARD1_CAM4_RIG2",1113.429,204.075,"Perspex","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",59.684,108.768,"1","Lutjanus.fulviflamma"
+"59","Perspex 2LIZARD1_CAM5_RIG3",862.17,124.233,"Perspex","Lutjanus","sp","no response","Individual","Lutjanidae",0,86.0396666666667,"1","Lutjanus.sp"
+"60","Perspex 2LIZARD2_CAM2_RIG1",2223.166,220.464,"Perspex","Lutjanus","fulvus","C- turn","Individual","Lutjanidae",664.22,635.558333333333,"2","Lutjanus.fulvus"
+"61","Perspex 2LIZARD2_CAM5_RIG3",845.935,284.196,"Perspex","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",NA,NA,"2","Plectorhinchus.chrysotaenia"
+"62","Perspex 2LIZARD2_CAM5_RIG3",845.935,284.196,"Shark","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",NA,NA,"2","Plectorhinchus.chrysotaenia"
+"63","Perspex 2LIZARD3_CAM1_RIG1",1972.512,485.032,"Perspex","Plectorhinchus","albovittatus",NA,"Individual","Haemulidae",110.805,0,"3","Plectorhinchus.albovittatus"
+"64","Perspex 2LIZARD3_CAM1_RIG1",1972.512,485.032,"Perspex","Plectorhinchus","albovittatus","no response","Individual","Haemulidae",110.805,0,"3","Plectorhinchus.albovittatus"
+"65","Perspex 2LIZARD3_CAM1_RIG1",1972.512,485.032,"Pipe","Plectorhinchus","albovittatus","no response","Individual","Haemulidae",110.805,0,"3","Plectorhinchus.albovittatus"
+"66","Perspex 2LIZARD3_CAM2_RIG1",846.077,243.527,"Perspex","Lutjanus","fulviflamma","C- turn","Individual","Lutjanidae",308.098,185.455666666667,"3","Lutjanus.fulviflamma"
+"67","Perspex 2LIZARD4_CAM4_RIG1",1659.149,463.702,"Perspex","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",NA,661.912,"4","Plectorhinchus.chrysotaenia"
+"68","Perspex 2LIZARD4_CAM4_RIG1",1659.149,463.702,"Turtle","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",NA,661.912,"4","Plectorhinchus.chrysotaenia"
+"69","Perspex 2LIZARD4_CAM5_RIG1",831.105,260.48,"Perspex","Lutjanus","fulviflamma","C- turn","Individual","Lutjanidae",281.864,642.366666666667,"4","Lutjanus.fulviflamma"
+"70","Perspex 3aLIZARD1_CAM2_RIG3",782.315,92.776,"Perspex","Lutjanus","sp","no response","School","Lutjanidae",310.596,91.434,"1","Lutjanus.sp"
+"71","Perspex 3aLIZARD1_CAM4_RIG2",1284.466,103.769,"Perspex","Lutjanus","sp","no response","School","Lutjanidae",226.764,131.254333333333,"1","Lutjanus.sp"
+"72","Perspex 3aLIZARD4_CAM5_RIG1",2149.253,243.246,"Perspex","Lutjanus","fulviflamma","flight","School","Lutjanidae",608.868,764.577,"4","Lutjanus.fulviflamma"
+"73","Perspex 3bLIZARD1_CAM2_RIG3",827.549,94.917,"Perspex","Lutjanus","sp","no response","School","Lutjanidae",107.263,NA,"1","Lutjanus.sp"
+"74","Perspex 3bLIZARD1_CAM4_RIG2",1213.658,144.42,"Perspex","Lutjanus","sp","no response","School","Lutjanidae",97.75,122.434,"1","Lutjanus.sp"
+"75","Perspex 3bLIZARD4_CAM5_RIG1",2159.205,257.292,"Perspex","Lutjanus","fulviflamma","flight","School","Lutjanidae",458.381,365.134666666667,"4","Lutjanus.fulviflamma"
+"76","Perspex 3cLIZARD1_CAM2_RIG3",848.275,82.669,"Perspex","Lutjanus","sp","no response","School","Lutjanidae",83.733,NA,"1","Lutjanus.sp"
+"77","Perspex 3cLIZARD1_CAM4_RIG2",1129.939,102.232,"Perspex","Lutjanus","sp","no response","School","Lutjanidae",183.358,167.933,"1","Lutjanus.sp"
+"78","Perspex 3cLIZARD4_CAM5_RIG1",1858.065,264.79,"Perspex","Lutjanus","fulviflamma","flight","School","Lutjanidae",665.911,825.620333333333,"4","Lutjanus.fulviflamma"
+"79","Perspex 3LIZARD2_CAM2_RIG1",1352.928,245.944,"Perspex","Diagramma","pictum","flight","Individual","Haemulidae",243.027,146.874333333333,"2","Diagramma.pictum"
+"80","Perspex 3LIZARD2_CAM2_RIG1",1352.928,245.944,"Perspex","Lutjanus","fulvus","flight","Individual","Lutjanidae",243.027,146.874333333333,"2","Lutjanus.fulvus"
+"81","Perspex 3LIZARD2_CAM5_RIG3",1037.27,237.858,"Perspex","Lutjanus","carponotatus","no response","Individual","Lutjanidae",84.67,102.916666666667,"2","Lutjanus.carponotatus"
+"82","Perspex 3LIZARD3_CAM2_RIG1",904.668,259.393,"Perspex","Lutjanus","fulviflamma","C- turn","Individual","Lutjanidae",142.893,257.734666666667,"3","Lutjanus.fulviflamma"
+"83","Perspex 4LIZARD2_CAM2_RIG1",1197.883,249.786,"Perspex","Diagramma","pictum","flight","Individual","Haemulidae",214.81,123.122333333333,"2","Diagramma.pictum"
+"84","Perspex 4LIZARD2_CAM2_RIG1",1197.883,249.786,"Perspex","Lutjanus","fulvus","flight","Individual","Lutjanidae",214.81,123.122333333333,"2","Lutjanus.fulvus"
+"85","Perspex 4LIZARD3_CAM2_RIG1",909.594,258.433,"Perspex","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",237.653,375.805666666667,"3","Lutjanus.fulviflamma"
+"86","Pipe 1aLIZARD1_CAM2_RIG3",838.987,99.517,"Pipe","Lutjanus","sp","hide","School","Lutjanidae",221.122,97.508,"1","Lutjanus.sp"
+"87","Pipe 1aLIZARD3_CAM3_RIG2",1309.66,201.722,"Pipe","Lutjanus","fulviflamma","flight","School","Lutjanidae",226.495,201.312,"3","Lutjanus.fulviflamma"
+"88","Pipe 1bLIZARD1_CAM2_RIG3",967.251,84.482,"Pipe","Lutjanus","sp","C- turn","School","Lutjanidae",92.899,101.668,"1","Lutjanus.sp"
+"89","Pipe 1bLIZARD3_CAM3_RIG2",788.737,203.924,"Pipe","Lutjanus","fulviflamma","flight","School","Lutjanidae",181.571,272.0635,"3","Lutjanus.fulviflamma"
+"90","Pipe 1cLIZARD1_CAM2_RIG3",888.758,81.308,"Pipe","Lutjanus","sp","hide","School","Lutjanidae",241.093,193.87,"1","Lutjanus.sp"
+"91","Pipe 1LIZARD1_CAM11_RIG1",1254.08,NA,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",177.256,183.496333333333,"1","Plectorhinchus.chrysotaenia"
+"92","Pipe 1LIZARD1_CAM4_RIG2",788.226,117.374,"Pipe","Lutjanus","sp","no response","Individual","Lutjanidae",209.783,167.046,"1","Lutjanus.sp"
+"93","Pipe 1LIZARD1_CAM6_RIG1",1997.694,252.147,"Pipe","Diagramma","pictum","flight","Individual","Haemulidae",527.034,442.178666666667,"1","Diagramma.pictum"
+"94","Pipe 1LIZARD2_CAM2_RIG1",1772.207,244.881,"Pipe","Diagramma","pictum","flight","Individual","Haemulidae",146.823,162.865,"2","Diagramma.pictum"
+"95","Pipe 1LIZARD2_CAM3_RIG1",961.861,251.248,"Pipe","Diagramma","pictum","no response","Individual","Haemulidae",114.789,188.3145,"2","Diagramma.pictum"
+"96","Pipe 1LIZARD2_CAM4_RIG1",1398.393,279.703,"Pipe","Diagramma","pictum","no response","Individual","Haemulidae",219.086,255.525,"2","Diagramma.pictum"
+"97","Pipe 1LIZARD2_CAM5_RIG3",693.875,NA,"Pipe","Diagramma","pictum","flight","Individual","Haemulidae",NA,NA,"2","Diagramma.pictum"
+"98","Pipe 1LIZARD2_CAM5_RIG3",693.875,NA,"Perspex","Diagramma","pictum","flight","Individual","Haemulidae",NA,NA,"2","Diagramma.pictum"
+"99","Pipe 1LIZARD3_CAM1_RIG1",700.431,358.941,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",565.624,535.081666666667,"3","Plectorhinchus.chrysotaenia"
+"100","Pipe 1LIZARD3_CAM1_RIG1",700.431,358.941,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual",NA,565.624,535.081666666667,"3","Plectorhinchus.chrysotaenia"
+"101","Pipe 1LIZARD3_CAM2_RIG1",2023.512,255.786,"Pipe","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",226.034,129.620333333333,"3","Lutjanus.fulviflamma"
+"102","Pipe 1LIZARD4_CAM2_RIG3",1158.118,NA,"Pipe","Lethrinus","atkinsoni","flight","Individual","Lethrinidae",145.764,322.361,"4","Lethrinus.atkinsoni"
+"103","Pipe 1LIZARD4_CAM4_RIG1",1409.628,619.959,"Pipe","Plectropomus","sp","swim backwards","Individual","Serranidae",179.906,214.917333333333,"4","Plectropomus.sp"
+"104","Pipe 1LIZARD4_CAM5_RIG1",1930.367,608.5,"Pipe","Lutjanus","bohar","flight","Individual","Lutjanidae",239.348,556.273,"4","Lutjanus.bohar"
+"105","Pipe 1LIZARD5_CAM2_RIG3",659.651,403.011,"Pipe","Plectropomus","sp","no response","Individual","Serranidae",132.462,107.763666666667,"5","Plectropomus.sp"
+"106","Pipe 2LIZARD1_CAM2_RIG3",744.946,194.236,"Pipe","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",167.103,182.409,"1","Lutjanus.fulviflamma"
+"107","Pipe 2LIZARD1_CAM2_RIG3",744.946,194.236,"Perspex","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",167.103,182.409,"1","Lutjanus.fulviflamma"
+"108","Pipe 2LIZARD1_CAM4_RIG2",1001.676,191.812,"Pipe","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",285.806,191.697,"1","Lutjanus.fulviflamma"
+"109","Pipe 2LIZARD1_CAM4_RIG2",1001.676,191.812,"Pipe","Lutjanus","sp","hide","Individual","Lutjanidae",285.806,191.697,"1","Lutjanus.sp"
+"110","Pipe 2LIZARD1_CAM4_RIG2",1001.676,191.812,"Diver","Lutjanus","fulviflamma","hide","Individual","Lutjanidae",285.806,191.697,"1","Lutjanus.fulviflamma"
+"111","Pipe 2LIZARD1_CAM6_RIG1",2214.918,239.683,"Pipe","Diagramma","pictum","flight","Individual","Haemulidae",350.723,299.915666666667,"1","Diagramma.pictum"
+"112","Pipe 2LIZARD2_CAM2_RIG1",1714.327,243.81,"Pipe","Diagramma","pictum","C- turn","Individual","Haemulidae",104.658,112.508333333333,"2","Diagramma.pictum"
+"113","Pipe 2LIZARD2_CAM3_RIG1",1903.993,266.391,"Pipe","Diagramma","pictum","C- turn","Individual","Haemulidae",94.727,100.535,"2","Diagramma.pictum"
+"114","Pipe 2LIZARD2_CAM4_RIG1",2172.642,194.865,"Pipe","Diagramma","pictum","no response","Individual","Haemulidae",119.869,154.936666666667,"2","Diagramma.pictum"
+"115","Pipe 2LIZARD2_CAM4_RIG1",2172.642,194.865,"Pipe","Lutjanus","sp","no response","Individual","Lutjanidae",119.869,154.936666666667,"2","Lutjanus.sp"
+"116","Pipe 2LIZARD2_CAM5_RIG3",551.083,NA,"Pipe","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",0,0,"2","Plectorhinchus.chrysotaenia"
+"117","Pipe 2LIZARD3_CAM1_RIG1",1549.525,487.285,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",939.995,522.809333333333,"3","Plectorhinchus.chrysotaenia"
+"118","Pipe 2LIZARD3_CAM1_RIG1",1549.525,487.285,"Pipe","Plectorhinchus","albovittatus","no response","Individual","Haemulidae",939.995,522.809333333333,"3","Plectorhinchus.albovittatus"
+"119","Pipe 2LIZARD3_CAM2_RIG1",1016.137,376.39,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",224.625,154.809333333333,"3","Plectorhinchus.chrysotaenia"
+"120","Pipe 2LIZARD4_CAM2_RIG3",419.922,303.778,"Pipe","Plectropomus","sp","no response","Individual","Serranidae",NA,NA,"4","Plectropomus.sp"
+"121","Pipe 2LIZARD4_CAM4_RIG1",1484.876,410.864,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",765.029,558.783666666667,"4","Plectorhinchus.chrysotaenia"
+"122","Pipe 3aLIZARD1_CAM4_RIG2",915.496,123.694,"Pipe","Lutjanus","sp","hide","School","Lutjanidae",128.764,233.466,"1","Lutjanus.sp"
+"123","Pipe 3bLIZARD1_CAM4_RIG2",843.308,112.847,"Pipe","Lutjanus","sp","hide","School","Lutjanidae",67.229,94.995,"1","Lutjanus.sp"
+"124","Pipe 3cLIZARD1_CAM4_RIG2",890.862,104.495,"Pipe","Lutjanus","sp","hide","School","Lutjanidae",89.455,141.875333333333,"1","Lutjanus.sp"
+"125","Pipe 3LIZARD2_CAM5_RIG3",1083.358,NA,"Pipe","Lutjanus","carponotatus","flight","Individual","Lutjanidae",0,0,"2","Lutjanus.carponotatus"
+"126","Pipe 3LIZARD3_CAM1_RIG1",1188.836,NA,"Pipe","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",571.542,NA,"3","Plectorhinchus.chrysotaenia"
+"127","Shark 1LIZARD1_CAM4_RIG2",1069.708,114.044,"Shark","Lutjanus","sp","no response","Individual","Lutjanidae",146.72,136.281,"1","Lutjanus.sp"
+"128","Shark 1LIZARD1_CAM4_RIG2",1069.708,114.044,"Shark","Lutjanus","sp","no response","School","Lutjanidae",146.72,136.281,"1","Lutjanus.sp"
+"129","Shark 1LIZARD1_CAM6_RIG1",2628.792,215.732,"Shark","Lutjanus","fulvus","flight","Individual","Lutjanidae",211.654,122.732333333333,"1","Lutjanus.fulvus"
+"130","Shark 1LIZARD2_CAM2_RIG1",1927.475,239.945,"Shark","Diagramma","pictum","flight","Individual","Haemulidae",315.372,290.364666666667,"2","Diagramma.pictum"
+"131","Shark 1LIZARD2_CAM3_RIG1",1327.082,248.576,"Shark","Diagramma","pictum","C- turn","Individual","Haemulidae",217.371,190.7305,"2","Diagramma.pictum"
+"132","Shark 1LIZARD2_CAM4_RIG1",1891.677,290.038,"Shark","Lutjanus","fulviflamma","C- turn","Individual","Lutjanidae",418.414,427.535,"2","Lutjanus.fulviflamma"
+"133","Shark 1LIZARD2_CAM4_RIG1",1891.677,290.038,"Turtle","Lutjanus","fulviflamma","C- turn","Individual","Lutjanidae",418.414,427.535,"2","Lutjanus.fulviflamma"
+"134","Shark 1LIZARD2_CAM5_RIG3",1099.562,191.864,"Shark","Diagramma","pictum","C- turn","Individual","Haemulidae",NA,325.675,"2","Diagramma.pictum"
+"135","Shark 1LIZARD3_CAM1_RIG1",521.595,378.589,"Shark","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",1239.558,997.739333333333,"3","Plectorhinchus.chrysotaenia"
+"136","Shark 1LIZARD3_CAM1_RIG1",521.595,378.589,"Shark","Pomacanthus","sexstriatus","flight","Individual","Pomacanthidae",1239.558,997.739333333333,"3","Pomacanthus.sexstriatus"
+"137","Shark 1LIZARD3_CAM2_RIG1",1996.874,399.138,"Shark","Pomacanthus","sexstriatus","flight","Individual","Pomacanthidae",769.035,969.215666666667,"3","Pomacanthus.sexstriatus"
+"138","Shark 1LIZARD3_CAM3_RIG2",1178.849,271.971,"Shark","Plectorhinchus","chrysotaenia","hide","Individual","Haemulidae",143.23,132.3475,"3","Plectorhinchus.chrysotaenia"
+"139","Shark 1LIZARD3_CAM5_RIG3",1185.486,274.712,"Shark","Plectorhinchus","lineatus","flight","Individual","Haemulidae",52.247,46.8733333333333,"3","Plectorhinchus.lineatus"
+"140","Shark 1LIZARD3_CAM6_RIG2",802.378,248.028,"Shark","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",137.727,150.247666666667,"3","Plectorhinchus.chrysotaenia"
+"141","Shark 1LIZARD3_CAM6_RIG2",802.378,248.028,"Turtle","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",137.727,150.247666666667,"3","Plectorhinchus.chrysotaenia"
+"142","Shark 1LIZARD4_CAM2_RIG3",766.551,NA,"Shark","Plectropomus","sp","hide","Individual","Serranidae",256.505,341.491,"4","Plectropomus.sp"
+"143","Shark 1LIZARD4_CAM4_RIG1",1695.648,520.609,"Shark","Plectropomus","sp","flight","Individual","Serranidae",129.417,267.612333333333,"4","Plectropomus.sp"
+"144","Shark 1LIZARD4_CAM5_RIG1",1210.33,402.95,"Shark","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",224.296,375.326,"4","Plectorhinchus.chrysotaenia"
+"145","Shark 1LIZARD5_CAM1_RIG2",1011.275,390.817,"Shark","Plectropomus","sp","flight","Individual","Serranidae",35.038,79.4343333333333,"5","Plectropomus.sp"
+"146","Shark 2LIZARD1_CAM4_RIG2",1592.574,211.539,"Shark","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",263.014,130.175,"1","Lutjanus.fulviflamma"
+"147","Shark 2LIZARD1_CAM4_RIG2",1592.574,211.539,"Turtle","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",263.014,130.175,"1","Lutjanus.fulviflamma"
+"148","Shark 2LIZARD1_CAM6_RIG1",2277.881,163.1,"Shark","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",100.373,116.173,"1","Lutjanus.fulviflamma"
+"149","Shark 2LIZARD2_CAM3_RIG1",1670.8,258.572,"Shark","Diagramma","pictum","flight","Individual","Haemulidae",265.135,262.4485,"2","Diagramma.pictum"
+"150","Shark 2LIZARD2_CAM4_RIG1",1587.086,312.699,"Shark","Diagramma","pictum","no response","Individual","Haemulidae",101.942,157.729,"2","Diagramma.pictum"
+"151","Shark 2LIZARD2_CAM4_RIG1",1587.086,312.699,"Turtle","Diagramma","pictum","no response","Individual","Haemulidae",101.942,157.729,"2","Diagramma.pictum"
+"152","Shark 2LIZARD2_CAM5_RIG3",1278.937,307.483,"Shark","Plectorhinchus","chrysotaenia","no response","Individual","Haemulidae",499.087,498.751333333333,"2","Plectorhinchus.chrysotaenia"
+"153","Shark 2LIZARD3_CAM1_RIG1",1558.45,NA,"Shark","Plectorhinchus","albovittatus","flight","Individual","Haemulidae",1064.438,173.9005,"3","Plectorhinchus.albovittatus"
+"154","Shark 2LIZARD3_CAM1_RIG1",1558.45,NA,"Shark","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",1064.438,173.9005,"3","Plectorhinchus.chrysotaenia"
+"155","Shark 2LIZARD3_CAM3_RIG2",1119.024,307.64,"Shark","Plectorhinchus","albovittatus","no response","Individual","Haemulidae",NA,NA,"3","Plectorhinchus.albovittatus"
+"156","Shark 2LIZARD3_CAM3_RIG2",1119.024,307.64,"Shark","Plectorhinchus","sp","no response","Individual","Haemulidae",NA,NA,"3","Plectorhinchus.sp"
+"157","Shark 2LIZARD4_CAM2_RIG3",613.29,NA,"Shark","Plectropomus","sp","flight","Individual","Serranidae",412.948,48.447,"4","Plectropomus.sp"
+"158","Shark 2LIZARD4_CAM2_RIG3",613.29,NA,"Shark","Plectropomus","sp","flight",NA,"Serranidae",412.948,48.447,"4","Plectropomus.sp"
+"159","Shark 2LIZARD4_CAM4_RIG1",1963.081,437.9,"Shark","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",797.49,167.912666666667,"4","Plectorhinchus.chrysotaenia"
+"160","Shark 2LIZARD4_CAM5_RIG1",2069.6,348.225,"Shark","Plectorhinchus","lineatus","flight","Individual","Haemulidae",228.779,288.457333333333,"4","Plectorhinchus.lineatus"
+"161","Shark 2LIZARD4_CAM5_RIG1",2069.6,348.225,"Pipe","Plectorhinchus","lineatus","flight","Individual","Haemulidae",228.779,288.457333333333,"4","Plectorhinchus.lineatus"
+"162","Shark 3aLIZARD1_CAM4_RIG2",1111.839,99.465,"Shark","Lutjanus","sp","hide","School","Lutjanidae",77.347,125.612666666667,"1","Lutjanus.sp"
+"163","Shark 3aLIZARD4_CAM2_RIG3",761.867,NA,"Shark","Lutjanus","fulviflamma","flight","School","Lutjanidae",301.622,282.32,"4","Lutjanus.fulviflamma"
+"164","Shark 3bLIZARD1_CAM4_RIG2",1164.206,118.536,"Shark","Lutjanus","sp","hide","School","Lutjanidae",91.43,121.021333333333,"1","Lutjanus.sp"
+"165","Shark 3bLIZARD4_CAM2_RIG3",784.852,NA,"Shark","Lutjanus","fulviflamma","flight","School","Lutjanidae",223.737,225.212,"4","Lutjanus.fulviflamma"
+"166","Shark 3LIZARD2_CAM3_RIG1",1895.173,237.704,"Shark","Diagramma","pictum","flight","Individual","Haemulidae",332.596,187.997,"2","Diagramma.pictum"
+"167","Shark 3LIZARD3_CAM1_RIG1",1361.233,382.229,"Shark","Plectorhinchus","chrysotaenia","hide","Individual","Haemulidae",298.225,281.827333333333,"3","Plectorhinchus.chrysotaenia"
+"168","Shark 3LIZARD4_CAM4_RIG1",2357.937,739.431,"Shark","Lutjanus","bohar","flight","Individual","Lutjanidae",577.773,246.043666666667,"4","Lutjanus.bohar"
+"169","Shark 3LIZARD4_CAM4_RIG1",2357.937,739.431,"Perspex","Lutjanus","bohar","flight","Individual","Lutjanidae",577.773,246.043666666667,"4","Lutjanus.bohar"
+"170","Shark 4aLIZARD4_CAM4_RIG1",1177.173,237.438,"Shark","Lutjanus","fulviflamma","flight","School","Lutjanidae",103.913,380.335,"4","Lutjanus.fulviflamma"
+"171","Shark 4bLIZARD4_CAM4_RIG1",1074.558,210.528,"Shark","Lutjanus","fulviflamma","flight","School","Lutjanidae",194.848,441.09,"4","Lutjanus.fulviflamma"
+"172","Shark 4cLIZARD4_CAM4_RIG1",1037.583,215.495,"Shark","Lutjanus","fulviflamma","flight","School","Lutjanidae",172.845,374.892333333333,"4","Lutjanus.fulviflamma"
+"173","Shark 4LIZARD3_CAM1_RIG1",1056.439,375.78,"Shark","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",565.009,781.772,"3","Plectorhinchus.chrysotaenia"
+"174","Shark 5LIZARD3_CAM1_RIG1",1845.513,372.746,"Shark","Pomacanthus","sexstriatus","flight","Individual","Pomacanthidae",700.444,789.549,"3","Pomacanthus.sexstriatus"
+"175","Shark 5LIZARD3_CAM1_RIG1",1845.513,372.746,"Shark","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",700.444,789.549,"3","Plectorhinchus.chrysotaenia"
+"176","Shark 5LIZARD4_CAM4_RIG1",1067.769,467.334,"Shark","Plectropomus","sp","flight","Individual","Serranidae",0,0,"4","Plectropomus.sp"
+"177","Shark 6LIZARD3_CAM1_RIG1",1069.408,255.474,"Shark","Lutjanus","carponotatus","flight","Individual","Lutjanidae",515.206,NA,"3","Lutjanus.carponotatus"
+"178","Turtle 1aLIZARD1_CAM2_RIG3",1048.079,102.173,"Turtle","Lutjanus","sp","hide","School","Lutjanidae",44.613,69.4933333333333,"1","Lutjanus.sp"
+"179","Turtle 1aLIZARD1_CAM6_RIG1",2058.448,NA,"Turtle","Lutjanus","fulviflamma","no response","School","Lutjanidae",81.835,152.615333333333,"1","Lutjanus.fulviflamma"
+"180","Turtle 1aLIZARD1_CAM6_RIG1",2058.448,NA,"Turtle","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",81.835,152.615333333333,"1","Lutjanus.fulviflamma"
+"181","Turtle 1aLIZARD3_CAM3_RIG2",1186.2,171.029,"Turtle","Lutjanus","fulviflamma","no response","School","Lutjanidae",89.843,111.053,"3","Lutjanus.fulviflamma"
+"182","Turtle 1aLIZARD4_CAM2_RIG3",541.402,145.85,"Turtle","Lutjanus","fulviflamma","flight","School","Lutjanidae",NA,NA,"4","Lutjanus.fulviflamma"
+"183","Turtle 1bLIZARD1_CAM2_RIG3",882.193,80.347,"Turtle","Lutjanus","sp","hide","School","Lutjanidae",0,153.343333333333,"1","Lutjanus.sp"
+"184","Turtle 1bLIZARD1_CAM6_RIG1",1973.807,NA,"Turtle","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",118.751,124.844,"1","Lutjanus.fulviflamma"
+"185","Turtle 1bLIZARD1_CAM6_RIG1",1973.807,NA,"Turtle","Lutjanus","fulviflamma","no response","School","Lutjanidae",118.751,124.844,"1","Lutjanus.fulviflamma"
+"186","Turtle 1bLIZARD3_CAM3_RIG2",1053.9,202.626,"Turtle","Lutjanus","fulviflamma","no response","School","Lutjanidae",186.971,332.064,"3","Lutjanus.fulviflamma"
+"187","Turtle 1bLIZARD4_CAM2_RIG3",513.276,117.593,"Turtle","Lutjanus","fulviflamma","flight","School","Lutjanidae",NA,NA,"4","Lutjanus.fulviflamma"
+"188","Turtle 1cLIZARD1_CAM2_RIG3",971.661,NA,"Turtle","Lutjanus","sp","hide","School","Lutjanidae",56.098,54.8563333333333,"1","Lutjanus.sp"
+"189","Turtle 1cLIZARD1_CAM6_RIG1",1963.001,NA,"Turtle","Lutjanus","fulviflamma","no response","School","Lutjanidae",90.03,94.3646666666667,"1","Lutjanus.fulviflamma"
+"190","Turtle 1cLIZARD1_CAM6_RIG1",1963.001,NA,"Turtle","Lutjanus","fulviflamma","no response","Individual","Lutjanidae",90.03,94.3646666666667,"1","Lutjanus.fulviflamma"
+"191","Turtle 1cLIZARD3_CAM3_RIG2",1245.404,176.943,"Turtle","Lutjanus","fulviflamma","no response","School","Lutjanidae",241.412,119.6215,"3","Lutjanus.fulviflamma"
+"192","Turtle 1cLIZARD4_CAM2_RIG3",767.609,160.069,"Turtle","Lutjanus","fulviflamma","flight","School","Lutjanidae",NA,NA,"4","Lutjanus.fulviflamma"
+"193","Turtle 1LIZARD1_CAM10_RIG2",1545.256,468.305,"Turtle","Plectorhinchus","albovittatus","no response","Individual","Haemulidae",0,0,"1","Plectorhinchus.albovittatus"
+"194","Turtle 1LIZARD1_CAM4_RIG2",1281.045,117.127,"Turtle","Lutjanus","sp","no response","Individual","Lutjanidae",204.061,169.320666666667,"1","Lutjanus.sp"
+"195","Turtle 1LIZARD2_CAM4_RIG1",1978.433,270.445,"Turtle","Diagramma","pictum","no response","Individual","Haemulidae",312.447,290.228,"2","Diagramma.pictum"
+"196","Turtle 1LIZARD2_CAM5_RIG3",730.639,286.713,"Turtle","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",529.501,501.207666666667,"2","Plectorhinchus.chrysotaenia"
+"197","Turtle 1LIZARD2_CAM7_RIG1",1316.457,255.923,"Turtle","Diagramma","pictum","no response","Individual","Haemulidae",268.937,275.295333333333,"2","Diagramma.pictum"
+"198","Turtle 1LIZARD3_CAM1_RIG1",2125.014,283.216,"Turtle","Pomacanthus","sexstriatus","flight","Individual","Pomacanthidae",409.6,576.323666666667,"3","Pomacanthus.sexstriatus"
+"199","Turtle 1LIZARD3_CAM2_RIG1",2430.997,566.31,"Turtle","Lutjanus","bohar","Passing","Individual","Lutjanidae",967.19,581.243,"3","Lutjanus.bohar"
+"200","Turtle 1LIZARD3_CAM5_RIG3",1217.788,323.448,"Turtle","Plectorhinchus","lineatus","flight","Individual","Haemulidae",86.46,114.852,"3","Plectorhinchus.lineatus"
+"201","Turtle 1LIZARD3_CAM5_RIG3",1217.788,323.448,"Diver","Plectorhinchus","lineatus","flight","Individual","Haemulidae",86.46,114.852,"3","Plectorhinchus.lineatus"
+"202","Turtle 1LIZARD3_CAM6_RIG2",1045.55,320.197,"Turtle","Plectorhinchus","lineatus","hide","Individual","Haemulidae",185.956,255.067666666667,"3","Plectorhinchus.lineatus"
+"203","Turtle 1LIZARD4_CAM4_RIG1",1523.649,597.735,"Turtle","Plectropomus","sp","no response","Individual","Serranidae",0,0,"4","Plectropomus.sp"
+"204","Turtle 1LIZARD4_CAM5_RIG1",1803.346,216.73,"Turtle","Lutjanus","carponotatus","flight","Individual","Lutjanidae",582.225,376.882,"4","Lutjanus.carponotatus"
+"205","Turtle 1LIZARD4_CAM7_RIG2",247.706,258.597,"Turtle","Plectropomus","sp","no response","Individual","Serranidae",0,0,"4","Plectropomus.sp"
+"206","Turtle 2LIZARD1_CAM4_RIG2",1521.913,195.276,"Turtle","Lutjanus","fulviflamma","flight","Individual","Lutjanidae",209.254,279.906666666667,"1","Lutjanus.fulviflamma"
+"207","Turtle 2LIZARD2_CAM4_RIG1",2286.263,271.41,"Turtle","Diagramma","pictum","no response","Individual","Haemulidae",290.802,291.9,"2","Diagramma.pictum"
+"208","Turtle 2LIZARD2_CAM5_RIG3",668.563,207.29,"Turtle","Diagramma","pictum","flight","Individual","Haemulidae",349.892,460.104666666667,"2","Diagramma.pictum"
+"209","Turtle 2LIZARD3_CAM1_RIG1",2938.462,441.532,"Turtle","Plectorhinchus","albovittatus","flight","Individual","Haemulidae",128.525,118.017666666667,"3","Plectorhinchus.albovittatus"
+"210","Turtle 2LIZARD3_CAM1_RIG1",2938.462,441.532,"Turtle","Pomacanthus","sexstriatus","flight","Individual","Pomacanthidae",128.525,118.017666666667,"3","Pomacanthus.sexstriatus"
+"211","Turtle 2LIZARD3_CAM2_RIG1",1563.113,388.293,"Turtle","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",94.049,158.857666666667,"3","Plectorhinchus.chrysotaenia"
+"212","Turtle 2LIZARD3_CAM5_RIG3",650.477,258.726,"Turtle","Plectorhinchus","chrysotaenia","hide","Individual","Haemulidae",145.165,162.306333333333,"3","Plectorhinchus.chrysotaenia"
+"213","Turtle 2LIZARD3_CAM5_RIG3",650.477,258.726,"Diver","Plectorhinchus","chrysotaenia","hide","Individual","Haemulidae",145.165,162.306333333333,"3","Plectorhinchus.chrysotaenia"
+"214","Turtle 2LIZARD3_CAM6_RIG2",611.939,243.689,"Turtle","Plectorhinchus","chrysotaenia","hide","Individual","Haemulidae",353.702,330.946666666667,"3","Plectorhinchus.chrysotaenia"
+"215","Turtle 2LIZARD4_CAM4_RIG1",1643.589,414.442,"Turtle","Plectorhinchus","chrysotaenia","flight","Individual","Haemulidae",406.48,422.973666666667,"4","Plectorhinchus.chrysotaenia"
+"216","Turtle 3LIZARD1_CAM4_RIG2",1366.967,224.279,"Turtle","Lutjanus","carponotatus","C- turn","Individual","Lutjanidae",393.64,398.184333333333,"1","Lutjanus.carponotatus"
+"217","Turtle 3LIZARD2_CAM5_RIG3",652.84,178.558,"Turtle","Diagramma","pictum","flight","Individual","Haemulidae",505.385,481.298666666667,"2","Diagramma.pictum"
