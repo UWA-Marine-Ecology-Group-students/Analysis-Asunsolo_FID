@@ -1,0 +1,14 @@
+"","modname","AICc","BIC","r2.vals","r2.vals.unique","edf","edf.less.1","delta.AICc","delta.BIC","wi.AICc","wi.BIC","log.length","sqrt.dfs.fid","Treatment","genus","school_individual"
+"fid.sqrt.dfs.fid.by.Treatment+Treatment","sqrt.dfs.fid.by.Treatment+Treatment",2154.11526878026,2186.95289133019,0.33547,NA,12.26,1,0,4.005,0.972,0.056,0,1,1,0,0
+"fid.sqrt.dfs.fid+Treatment","sqrt.dfs.fid+Treatment",2162.2322595115,2182.94822246493,0.23229,NA,7,0,8.117,0,0.017,0.417,0,1,1,0,0
+"fid.log.length+Treatment","log.length+Treatment",2163.88718149276,2183.28317120398,0.21615,NA,7,1,9.772,0.335,0.007,0.352,1,0,1,0,0
+"fid.log.length.by.Treatment+Treatment","log.length.by.Treatment+Treatment",2166.26728548143,2195.9795888553,0.25547,NA,11,1,12.152,13.031,0.002,0.001,1,0,1,0,0
+"fid.Treatment","Treatment",2168.28836142646,2186.91370618365,0.18616,NA,6,0,14.173,3.965,0.001,0.057,0,0,1,0,0
+"fid.school_individual+Treatment","school_individual+Treatment",2169.70361462104,2190.87926455958,0.19072,NA,7,0,15.588,7.931,0,0.008,0,0,1,0,1
+"fid.log.length","log.length",2177.34224609743,2186.78479756971,0.08015,NA,3.34,1,23.227,3.837,0,0.061,1,0,0,0,0
+"fid.sqrt.dfs.fid","sqrt.dfs.fid",2177.67931997624,2188.31281488514,0.08442,NA,3,0,23.564,5.365,0,0.028,0,1,0,0,0
+"fid.school_individual+sqrt.dfs.fid","school_individual+sqrt.dfs.fid",2179.49531568124,2192.83889752074,0.08649,NA,4,0,25.38,9.891,0,0.003,0,1,0,0,1
+"fid.school_individual+sqrt.dfs.fid.by.school_individual","school_individual+sqrt.dfs.fid.by.school_individual",2180.22928509739,2197.91828647183,0.10607,NA,5.66,0,26.114,14.97,0,0,0,1,0,0,1
+"fid.null","null",2181.64705230859,2189.69335047587,0.04371,NA,2,0,27.532,6.745,0,0.014,0,0,0,0,0
+"fid.genus","genus",2182.36076273945,2201.45965042864,0.09905,NA,6,0,28.245,18.511,0,0,0,0,0,1,0
+"fid.school_individual","school_individual",2182.92750437475,2193.70776778664,0.04922,NA,3,0,28.812,10.76,0,0.002,0,0,0,0,1

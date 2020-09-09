@@ -1,5 +1,5 @@
 ### Models ####
-setwd("~/Andrea/Analysis")
+setwd("~/Documents/Master UWA/thesis/Results/GitHub/Analysis-Asunsolo_FID")
 
 # librarys----
 detach("package:plyr", unload=TRUE)#will error - don't worry
@@ -18,7 +18,7 @@ library(gamm4)
 library(RCurl) #needed to download data from GitHub
 
 
-data<- read.csv("data_wide_BG_AA.csv")%>%
+data<- read.csv("data_wide_BG_AA_edited.csv")%>%
   glimpse()
 
 
@@ -30,7 +30,7 @@ data<-na.omit(dat)#%>%
 
 glimpse(data)
 
-## Lose ~30 obs
+## Lose ~37 obs
 
 # install package----
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
@@ -38,7 +38,7 @@ library(FSSgam)
 
 cont.preds=c("length","DFSAvg") # use as continuous predictors.
 
-cat.preds= c("Treatment","genus",  "school_individual")
+cat.preds= c("Treatment","genus", "school_individual")
 
 null.vars="site" # use as random effect and null model
 
@@ -162,8 +162,8 @@ heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
           Rowv=FALSE,Colv=FALSE)
 dev.off()
 name="FID"
-write.csv(all.mod.fits[,-2],"all_model_fits_functional_biomass.csv")
-write.csv(top.mod.fits[,-2],"top_model_fits_functional_biomass.csv")
+write.csv(all.mod.fits[,-2],"all_model_fits_fid.csv")
+write.csv(top.mod.fits[,-2],"top_model_fits_fid.csv")
 write.csv(model.set$predictor.correlations,"predictor_correlations.csv")
 write.csv(all.mod.fits[,-2],file=paste(name,"all.mod.fits.csv",sep="_"))
 write.csv(all.var.imp,file=paste(name,"all.var.imp.csv",sep="_"))
