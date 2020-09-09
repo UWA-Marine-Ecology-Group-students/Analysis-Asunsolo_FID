@@ -1,5 +1,5 @@
 ### Models ####
-setwd("~/Documents/Master UWA/thesis/Results/GitHub/Analysis-Asunsolo_FID")
+setwd("~/Andrea/Analysis")
 
 # librarys----
 detach("package:plyr", unload=TRUE)#will error - don't worry
@@ -18,30 +18,27 @@ library(gamm4)
 library(RCurl) #needed to download data from GitHub
 
 
-  data<- read.csv("data_wide_BG_AA.csv", na.strings = c("", NA))
-head(data)
+data<- read.csv("data_wide_BG_AA.csv")%>%
+  glimpse()
 
-#incudes.na<-data%>%
-  #filter(school_individual%in%c("School"))
 
-###
 dat <- data %>%
-  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, dfs.fid, site)%>%
+  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, DFSAvg, site)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
 
 glimpse(data)
 
-## Lose ~45 obs
+## Lose ~30 obs
 
 # install package----
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
 
-cont.preds=c("length","dfs.fid") # use as continuous predictors.
+cont.preds=c("length","DFSAvg") # use as continuous predictors.
 
-cat.preds= c("Treatment","genus", "scientific", "school_individual")
+cat.preds= c("Treatment","genus",  "school_individual")
 
 null.vars="site" # use as random effect and null model
 
@@ -66,17 +63,19 @@ for (i in cont.preds) {
 
 data$sqrt.length <- sqrt(data$length) #not sure which transformation to use
 data$log.length <- log(data$length + 1) #between log and sqrt
-data$sqrt.dfs.fid <- sqrt(data$dfs.fid) 
-data$log.dfs.fid <- log(data$dfs.fid +1)
+data$sqrt.DFSAvg <- sqrt(data$DFSAvg) 
+data$log.DFSAvg <- log(data$DFSAvg + 1) 
+
 
 #transformed variables###
 
-cont.preds=c("log.length","log.dfs.fid") # use as continuous predictors.
+cont.preds=c("log.length", "log.DFSAvg") # use as continuous predictors.
 
-cat.preds= c("Treatment","genus", "scientific", "school_individual")
+cat.preds= c("Treatment","genus", "school_individual")
 
 null.vars="site" # use as random effect and null model
 # take a look at the response variables
+
 resp.var=data$fid
 resp.var
 
@@ -90,6 +89,8 @@ for(r in 1:length(resp.var)){
   plot(jitter(data[,resp.var[r]]))
 }
 dev.off()
+
+glimpse(data)
 
 ### now fit the models ---------------------------------------------------------
 i=1
@@ -106,7 +107,7 @@ for(i in 1:length(resp.var)){
              family=gaussian(link = "identity"),
              data=use.dat)
   
-  model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
+model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
                                test.fit=Model1,k=3,
                                pred.vars.cont=cont.preds,
                                pred.vars.fact=cat.preds,
@@ -125,7 +126,6 @@ for(i in 1:length(resp.var)){
   var.imp=c(var.imp,list(out.list$variable.importance$aic$variable.weights.raw))
   all.less.2AICc=mod.table[which(mod.table$delta.AICc<2),]
   top.all=c(top.all,list(all.less.2AICc))
-  
   
   # plot the all best models
   par(oma=c(1,1,4,1))
@@ -161,12 +161,16 @@ heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
           sepcolor = "black",margins=c(12,14), lhei=c(3,10),lwid=c(3,10),
           Rowv=FALSE,Colv=FALSE)
 dev.off()
-
+name="FID"
 write.csv(all.mod.fits[,-2],"all_model_fits_functional_biomass.csv")
 write.csv(top.mod.fits[,-2],"top_model_fits_functional_biomass.csv")
 write.csv(model.set$predictor.correlations,"predictor_correlations.csv")
+write.csv(all.mod.fits[,-2],file=paste(name,"all.mod.fits.csv",sep="_"))
+write.csv(all.var.imp,file=paste(name,"all.var.imp.csv",sep="_"))
+all.mod.fits
+all.var.imp
 
-#### pretty plots of best models -----------------------------------------------
+#### pretty plots of best model -----------------------------------------------
 
 gamm <- gam (fid~s(log.length,k=4,bs='cr') + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
@@ -217,4 +221,3 @@ ggmod.log.length
 #####################
 ## End, congrats!
 #####################
-
