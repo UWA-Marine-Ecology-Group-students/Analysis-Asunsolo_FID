@@ -26,7 +26,7 @@ head(data)
 
 ###
 dat <- data %>%
-  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, dfs.fid, site)%>%
+  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, dfs.fid, site, scientific)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
