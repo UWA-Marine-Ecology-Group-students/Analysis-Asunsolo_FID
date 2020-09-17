@@ -153,7 +153,7 @@ require(doBy)
 require(gplots)
 require(RColorBrewer)
 
-pdf(file="var_importance_heatmap_functional_biomass.pdf",height=5,width=7,pointsize=10)
+pdf(file="var_importance_heatmap_fid.pdf",height=5,width=7,pointsize=10)
 heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
           col=colorRampPalette(c("white","yellow","orange","red"))(30),
           trace="none",key.title = "",keysize=2,

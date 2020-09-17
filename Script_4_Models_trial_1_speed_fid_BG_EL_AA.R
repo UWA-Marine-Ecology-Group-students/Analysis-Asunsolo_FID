@@ -82,7 +82,7 @@ resp.var
 resp.var=list("speed.fid"=gaussian(link = "identity"))
 resp.var=names(resp.var)
 
-pdf(file="resp_var.pdf",onefile=T)
+pdf(file="resp_var.speed.pdf",onefile=T)
 for(r in 1:length(resp.var)){
   par(mfrow=c(2,1))
   hist(data[,resp.var[r]],main=resp.var[r])
@@ -103,7 +103,7 @@ out.all=list()
 var.imp=list()
 fss.all=list()
 top.all=list()
-pdf(file="mod_fits_fid.pdf",onefile=T)
+pdf(file="mod_fits_speed.fid.pdf",onefile=T)
 for(i in 1:length(resp.var)){
   use.dat=data[,c(null.vars,cont.preds,cat.preds,resp.var[i])]
   use.dat$response=use.dat[,resp.var[i]]
@@ -158,7 +158,7 @@ require(doBy)
 require(gplots)
 require(RColorBrewer)
 
-pdf(file="var_importance_heatmap_functional_biomass.pdf",height=5,width=7,pointsize=10)
+pdf(file="var_importance_heatmap_speed_fid.pdf",height=5,width=7,pointsize=10)
 heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
           col=colorRampPalette(c("white","yellow","orange","red"))(30),
           trace="none",key.title = "",keysize=2,
@@ -177,7 +177,7 @@ all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
 
-gamm <- gam (fid~s(log.length,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -216,10 +216,10 @@ predicts.log.length
 library(ggplot2)
 
 ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.length)+
-  ylab("FID")+
+  ylab("Speed.FID")+
   xlab('Log length')+
   geom_line(data=predicts.log.length,aes(x=log.length, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=fid),colour="#293462",alpha=0.2)+
+  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
   geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
   theme_classic()
 
@@ -253,7 +253,7 @@ predicts.Treatment
 
 
 ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)+
-  ylab("FID")+
+  ylab("Speed.FID")+
   xlab('Treatment')+
   geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
   #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here

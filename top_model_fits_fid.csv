@@ -1,2 +1,4 @@
-"","modname","AICc","BIC","r2.vals","r2.vals.unique","edf","edf.less.1","delta.AICc","delta.BIC","wi.AICc","wi.BIC","log.length","sqrt.speed.priorAvg","Treatment","genus","school_individual"
-"speed.fid","log.length+sqrt.speed.priorAvg",85.6314814748201,97.7044312071043,0.21289,NA,4.12,1,0,0,0.685,0.833,1,1,0,0,0
+"","modname","AICc","BIC","r2.vals","r2.vals.unique","edf","edf.less.1","delta.AICc","delta.BIC","wi.AICc","wi.BIC","log.length","log.DFSAvg","Treatment","genus","school_individual"
+"fid.log.DFSAvg.by.Treatment+Treatment","log.DFSAvg.by.Treatment+Treatment",2281.73903978596,2314.03599779693,0.30436,NA,11.7,1,0,10.836,0.513,0.004,0,1,1,0,0
+"fid.log.length+Treatment","log.length+Treatment",2283.34497930661,2303.19994781474,0.24041,NA,7,1,1.606,0,0.23,0.829,1,0,1,0,0
+"fid.log.length.by.Treatment+Treatment","log.length.by.Treatment+Treatment",2283.38383518964,2315.65409494248,0.29613,NA,11.69,1,1.645,12.454,0.225,0.002,1,0,1,0,0

@@ -23,7 +23,7 @@ data<- read.csv("data_wide_BG_AA_edited.csv")%>%
 
 
 dat <- data %>%
-  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, dfs.fid, site)%>%
+  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, DFSAvg, site)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
@@ -36,7 +36,7 @@ glimpse(data)
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
 
-cont.preds=c("length","dfs.fid") # use as continuous predictors.
+cont.preds=c("length","DFSAvg") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -63,13 +63,13 @@ for (i in cont.preds) {
 
 data$sqrt.length <- sqrt(data$length) #not sure which transformation to use
 data$log.length <- log(data$length + 1) #between log and sqrt
-data$sqrt.dfs.fid <- sqrt(data$dfs.fid) 
+data$log.DFSAvg <- log(data$DFSAvg + 1) 
 #data$log.DFSAvg <- log(data$DFSAvg + 1) 
 
 
 #transformed variables###
 
-cont.preds=c("log.length", "sqrt.dfs.fid") # use as continuous predictors.
+cont.preds=c("log.length", "log.DFSAvg") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -172,7 +172,7 @@ all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
 
-gamm <- gam (fid~s(log.length,k=4,bs='cr') + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (fid~s(log.length,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -187,6 +187,7 @@ gam.check(gamm)
 detach("package:plyr", unload=TRUE)#will error - don't worry. Just get rid of this bastard.
 
 testdata <- expand.grid(log.length = seq(min(data$log.length),max(data$log.length),length.out = 20),
+      Treatment = (mod$model$Treatment),
                         site=(mod$model$site))%>%
   distinct()%>%
   glimpse()
@@ -210,14 +211,49 @@ library(ggplot2)
 
 ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.length)+
   ylab("FID")+
-  xlab('Log length')+
-  geom_line(data=predicts.log.length,aes(x=log.length, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=fid),colour="#293462",alpha=0.2)+
-  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
+  xlab('log.length')+
+  geom_line(data=predicts.log.length,aes(x=log.length, y=response),alpha=0.8,size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=log.length, y=fid),alpha=0.2)+
+  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, linetype='blank')+
   theme_classic()
 
 ggmod.log.length
 
+#### Treatment model predictions####
+
+testdataT <- expand.grid(log.length = mean(data$log.length),
+                        Treatment = (mod$model$Treatment),
+                        site=(mod$model$site))%>%
+  distinct()%>%
+  glimpse()
+
+
+
+head(testdataT)
+fits <- predict.gam(mod, newdata=testdataT, type='response', se.fit=T)
+# head(fits,2)
+
+
+predicts.Treatment= testdataT%>%data.frame(fits)%>%
+  group_by(Treatment)%>% #only change here
+  summarise(response=mean(fit),se.fit=mean(se.fit))%>%
+  ungroup()
+predicts.Treatment
+
+
+## Colour
+library(ggplot2)
+
+ggmod.Treatment <-  ggplot(aes(x=Treatment ,y=response, fill = Treatment), data=predicts.Treatment)+
+  ylab("FID (mm)")+
+  xlab('Treatment')+
+  geom_bar(data=predicts.Treatment,aes(x=Treatment, y=response),alpha=0.8,stat = "identity",size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=Treatment, y=fid),alpha=0.2)+
+  geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
+  theme_classic()
+
+ggmod.Treatment
 #####################
 ## End, congrats!
 #####################
+
