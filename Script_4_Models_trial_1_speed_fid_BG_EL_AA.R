@@ -264,6 +264,6 @@ ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)
 
 ggmod.Treatment
 
-geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
+#### to use different colors in the graph###
+#geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
   #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
-  geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.8, colour="grey30") +
