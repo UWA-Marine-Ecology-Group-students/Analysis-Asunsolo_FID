@@ -158,14 +158,14 @@ require(doBy)
 require(gplots)
 require(RColorBrewer)
 
-pdf(file="var_importance_heatmap_speed_fid.pdf",height=5,width=7,pointsize=10)
-heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
-          col=colorRampPalette(c("white","yellow","orange","red"))(30),
-          trace="none",key.title = "",keysize=2,
-          notecol="black",key=T,
-          sepcolor = "black",margins=c(12,14), lhei=c(3,10),lwid=c(3,10),
-          Rowv=FALSE,Colv=FALSE)
-dev.off()
+#pdf(file="var_importance_heatmap_speed_fid.pdf",height=5,width=7,pointsize=10)
+#heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
+#          col=colorRampPalette(c("white","yellow","orange","red"#))(30),
+#          trace="none",key.title = "",keysize=2,
+#          notecol="black",key=T,
+#          sepcolor = "black",margins=c(12,14), lhei=c(3,10),lwid=c(3,10),
+#          Rowv=FALSE,Colv=FALSE)
+#dev.off()
 name="FID"
 write.csv(all.mod.fits[,-2],"all_model_fits_speed.fid.csv")
 write.csv(top.mod.fits[,-2],"top_model_fits_speed.fid.csv")
@@ -255,10 +255,15 @@ predicts.Treatment
 ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)+
   ylab("Speed.FID")+
   xlab('Treatment')+
-  geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
-  #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
-  geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.8, colour="grey30") +
+  geom_bar(data=predicts.Treatment,aes(x=Treatment, y=response),alpha=0.8,stat = "identity",size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=Treatment, y=speed.fid),alpha=0.2)+
+  geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
+  theme_classic()
   
   theme_classic()
 
 ggmod.Treatment
+
+geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
+  #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
+  geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.8, colour="grey30") +

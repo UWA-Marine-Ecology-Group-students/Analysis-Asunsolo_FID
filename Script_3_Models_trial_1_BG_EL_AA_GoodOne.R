@@ -153,14 +153,14 @@ require(doBy)
 require(gplots)
 require(RColorBrewer)
 
-pdf(file="var_importance_heatmap_fid",height=5,width=7,pointsize=10)
-heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
-          col=colorRampPalette(c("white","yellow","orange","red"))(30),
-          trace="none",key.title = "",keysize=2,
-          notecol="black",key=T,
-          sepcolor = "black",margins=c(12,14), lhei=c(3,10),lwid=c(3,10),
-          Rowv=FALSE,Colv=FALSE)
-dev.off()
+#pdf(file="var_importance_heatmap_fid",height=5,width=7,pointsize=10)
+#heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
+#          col=colorRampPalette(c("white","yellow","orange","red"3))(30),
+#          trace="none",key.title = "",keysize=2,
+#          notecol="black",key=T,
+#          sepcolor = "black",margins=c(12,14), lhei=c(3,10),lwid=c(3,10),
+#          Rowv=FALSE,Colv=FALSE)
+#dev.off()
 name="FID"
 write.csv(all.mod.fits[,-2],"all_model_fits_fid.csv")
 write.csv(top.mod.fits[,-2],"top_model_fits_fid.csv")
