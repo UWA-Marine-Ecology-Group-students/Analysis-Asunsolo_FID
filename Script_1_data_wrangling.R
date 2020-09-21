@@ -180,25 +180,48 @@ dat$site <- site
 glimpse(dat)
 
 #### trying to get min, max and mean for schools ####
-# SharkLIZARD4_CAM4_RIG1
+
+schools<- dat[dat$school_individual == 'School',] %>%
+dplyr:: mutate (school_id = paste0(`Treatment`, opcode)) 
+
+names(schools)
 
 
+school.mean.var<- dplyr::select(schools, dfs.fid, dfs.prior.1, dfs.prior.2, dfs.prior.3, fid, length, speed.fid, speed.prior.1, speed.prior.2, speed.prior.3, DFSAvg, speed.priorAvg, school_id)
 
-#schools<- dat[dat$school_individual == 'School',] %>%
-  #dplyr:: mutate (school_id = paste0(`Treatment`, opcode)) 
+school.mean <- aggregate(school.mean.var[c(1:12)], list (school.mean.var$school_id), MARGIN =  2, FUN = mean)
 
-#names(schools)
+school.mean$Treatment<- tapply(schools$Treatment, schools$school_id, function(x) x[1])
 
-#school.factors<-schools%>%
- # distinct(Treatment,opcode,family,genus,species,activity,school_individual,site,school_id)
+school.mean$opcode<- tapply(schools$opcode, schools$school_id, function(x) x[1])
 
-#schools.mean<-schools%>%
- # dplyr::group_by(school_id)%>%
- # dplyr::summarise_if(is.numeric, mean, na.rm = TRUE)
- # glimpse()
+school.mean$family<- tapply(schools$family, schools$school_id, function(x) x[1])
 
-#apply(dat$school_id, MARGIN =  2, FUN = mean)
-#apply(dat$school_id, MARGIN =  2, FUN = max)
-#apply(dat$school_id, MARGIN =  2, FUN = min)
+school.mean$genus<- tapply(schools$genus, schools$school_id, function(x) x[1])
+
+school.mean$species<- tapply(schools$species, schools$school_id, function(x) x[1])
+
+school.mean$activity<- tapply(schools$activity, schools$school_id, function(x) x[1])
+
+school.mean$school_individual<- tapply(schools$school_individual, schools$school_id, function(x) x[1])
+
+school.mean$scientific<- tapply(schools$scientific, schools$school_id, function(x) x[1])
+
+school.mean$site<- tapply(schools$site, schools$school_id, function(x) x[1])
+
+school.mean<- dplyr::rename(school.mean, unique_id = Group.1 )
+
+
+#### max ####
+school.max<- aggregate(school.mean.var[c(1:12)], list (school.mean.var$school_id), MARGIN =  2, FUN = max)
+
+school.max
+
+### Min #####
+school.min<- aggregate(school.mean.var[c(1:12)], list (school.mean.var$school_id), MARGIN =  2, FUN = min)
+
+school.min
+
+
 
 write.csv(dat, "data_wide_BG_AA.csv")
