@@ -210,8 +210,8 @@ school.mean$scientific<- tapply(schools$scientific, schools$school_id, function(
 school.mean$site<- tapply(schools$site, schools$school_id, function(x) x[1])
 
 school.mean<- dplyr::rename(school.mean, unique_id = Group.1 )
-
-
+dat1<-dplyr::filter(dat, !school_individual=="School")
+dat<- rbind(dat1,school.mean)
 #### max ####
 school.max<- aggregate(school.mean.var[c(1:12)], list (school.mean.var$school_id), MARGIN =  2, FUN = max)
 
@@ -224,4 +224,4 @@ school.min
 
 
 
-write.csv(dat, "data_wide_BG_AA.csv")
+write.csv(dat, "data_wide_SchoolMean_BG_AA.csv")
