@@ -1,7 +1,7 @@
 
 setwd("~/Documents/Master UWA/thesis/Results/GitHub/Analysis-Asunsolo_FID")
 
-dat<-read.csv("data_wide_BG_AA.csv")
+dat<-read.csv("data_wide_SchoolsMean_BG_AA.csv")
 
 library(ggplot2)
 library(dplyr)
@@ -21,13 +21,22 @@ dotchart(dat$length, dat$fid, xlab= "Fish size (mm)", ylab= "FID (mm)")
 
 boxplot(dat$activity~dat$Treatment, xlab= "Treatment", ylab= "Type of reaction") # how to plot that!
 
-boxplot(dat$fid~dat$species, xlab= "Sp", ylab= "FID (mm)", las=3, cex= 0.2)
+boxplot(dat$fid~dat$scientific, xlab= "Sp", ylab= "FID (mm)", las=3, cex= 0.2)
 
 boxplot(dat$fid~dat$genus, xlab= "Genus", ylab= "FID (mm)", las=3, cex= 0.2)
 
-plot(dat$Treatment, dat$activity, xlab= "Treatment", ylab= "Type of reaction", col=
-       1:length(dat$activity))
+plot(dat$Treatment, dat$activity, xlab= "Treatment", ylab= "Type of reaction", col= 1:length(dat$activity))
 #legend(1,95, legend=c("swim backwards", "no response", "hide", "flight", "c-turn"))
+
+###type of reaction####
+type.reaction <-  ggplot(aes(x=Treatment ,y=activity, fill = Treatment), data=dat)+
+  ylab("Type of reaction")+
+  xlab('Treatment')+
+  geom_bar(data=dat,aes(x=Treatment, y=activity),alpha=0.8,stat = "identity",size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=Treatment, y=fid),alpha=0.2)+
+ # geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
+  theme_classic()
+type.reaction
 
 plot(dat$Treatment, dat$length, xlab= "Treatment", ylab= "Length")
 dotchart(dat$length, dat$Treatment, xlab= "Fish size (mm)", ylab= "Treatment")
@@ -114,13 +123,15 @@ FID_speed.FID<- ggplot(dat, aes(fid, speed.fid))+ facet_wrap(~Treatment)+
 theme_classic()
 FID_speed.FID
 
+#Length ~ FID per treatment
 FID_Length<- ggplot(dat, aes(length, fid))+ facet_wrap(~Treatment)+
  geom_point()+
  theme_classic()
 FID_Length
 
-
+#Length ~ FID per Genus
 FID_Length_Genus<- ggplot(dat, aes(length, fid))+ facet_wrap(~genus)+
-# geom_point()+
-#theme_classic()
+ geom_point()+
+theme_classic()
 FID_Length_Genus
+

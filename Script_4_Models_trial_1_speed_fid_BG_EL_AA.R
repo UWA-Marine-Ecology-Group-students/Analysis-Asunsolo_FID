@@ -18,7 +18,7 @@ library(gamm4)
 library(RCurl) #needed to download data from GitHub
 
 
-data<- read.csv("data_wide_BG_AA_edited.csv")%>%
+data<- read.csv("data_wide_SchoolsMean_BG_AA.csv")%>%
   glimpse()
 
 
@@ -30,7 +30,7 @@ data<-na.omit(dat)#%>%
 
 glimpse(data)
 
-## Lose ~30 obs
+## Lose ~24 obs
 
 # install package----
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
@@ -176,6 +176,16 @@ all.mod.fits
 all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
+gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(sqrt.speed.priorAvg,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+             data=data)
+
+summary(gamm)
+mod<-gamm
+par(mfrow=c(1,1))
+plot(gamm)
+gam.check(gamm)
+
+#model predictions for log.length
 
 gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
@@ -187,7 +197,6 @@ plot(gamm)
 gam.check(gamm)
 
 
-#model predictions for log.small
 
 detach("package:plyr", unload=TRUE)#will error - don't worry. Just get rid of this bastard.
 
@@ -224,6 +233,49 @@ ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.len
   theme_classic()
 
 ggmod.log.length
+## Model predictions for sqrt.speed.priorAvg
+
+gamm <- gam (speed.fid~s(sqrt.speed.priorAvg,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+             data=data)
+
+summary(gamm)
+mod<-gamm
+par(mfrow=c(1,1))
+plot(gamm)
+gam.check(gamm)
+
+
+
+testdata <- expand.grid(sqrt.speed.priorAvg = seq(min(data$sqrt.speed.priorAvg),max(data$sqrt.speed.priorAvg),length.out = 20),
+                        Treatment = (mod$model$Treatment),
+                        site=(mod$model$site))%>%
+  distinct()%>%
+  glimpse()
+
+
+
+head(testdata)
+fits <- predict.gam(mod, newdata=testdata, type='response', se.fit=T)
+## Plot Sqrt.speedAvg####
+
+predicts.sqrt.speed.avg= testdata%>%data.frame(fits)%>%
+  group_by(sqrt.speed.priorAvg)%>% #only change here
+  summarise(response=mean(fit),se.fit=mean(se.fit))%>%
+  ungroup()
+predicts.sqrt.speed.avg
+
+## Colour
+library(ggplot2)
+
+ggmod.sqrt.speed.prior.avg <-  ggplot(aes(x=sqrt.speed.priorAvg ,y=response), data=predicts.sqrt.speed.avg)+
+  ylab("Speed.FID")+
+  xlab('Sqrt Speed prior Avg')+
+  geom_line(data=predicts.sqrt.speed.avg,aes(x=sqrt.speed.priorAvg, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
+  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
+  theme_classic()
+
+ggmod.sqrt.speed.prior.avg
 
 ## Plot Treatment
 

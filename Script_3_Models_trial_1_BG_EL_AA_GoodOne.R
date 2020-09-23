@@ -18,7 +18,7 @@ library(gamm4)
 library(RCurl) #needed to download data from GitHub
 
 
-data<- read.csv("data_wide_BG_AA_edited.csv")%>%
+data<- read.csv("data_wide_SchoolsMean_BG_AA.csv")%>%
   glimpse()
 
 
@@ -64,7 +64,7 @@ for (i in cont.preds) {
 data$sqrt.length <- sqrt(data$length) #not sure which transformation to use
 data$log.length <- log(data$length + 1) #between log and sqrt
 data$log.DFSAvg <- log(data$DFSAvg + 1) 
-#data$log.DFSAvg <- log(data$DFSAvg + 1) 
+data$log.DFSAvg <- log(data$DFSAvg + 1) 
 
 
 #transformed variables###
@@ -212,9 +212,9 @@ library(ggplot2)
 ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.length)+
   ylab("FID")+
   xlab('log.length')+
-  geom_line(data=predicts.log.length,aes(x=log.length, y=response),alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=fid),alpha=0.2)+
-  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, linetype='blank')+
+  geom_line(data=predicts.log.length,aes(x=log.length, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=log.length, y=fid),colour="#293462",alpha=0.2)+
+  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), fill="#293462",alpha=0.4, linetype='blank')+
   theme_classic()
 
 ggmod.log.length

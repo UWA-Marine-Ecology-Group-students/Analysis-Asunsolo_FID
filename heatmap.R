@@ -2,13 +2,14 @@ setwd("~/Documents/Master UWA/thesis/Results/GitHub/Analysis-Asunsolo_FID")
 
 ####Librarys####
 library(dplyr)
+library(tidyr)
 #fid<- read.csv("FID_all.var.imp.csv")
 #speed.fid<- read.csv("FID_all.var.imp.speed.fid.csv")
 
 #data<-rbind(fid,speed.fid)
 
-data<- read.csv("ALL_imp_var_fid_speedfid.csv")%>%
-  dplyr::rename(resp.var=X)%>%
+data<- read.csv("ALL_imp_var_fid_speedfid_SchoolMean.csv")%>%
+  dplyr::rename(resp.var= X)%>%
   tidyr::gather(key=predictor,value=importance,2:ncol(.))%>%
   glimpse()
 
