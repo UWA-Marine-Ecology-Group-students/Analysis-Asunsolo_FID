@@ -239,49 +239,6 @@ ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.len
   theme_classic()
 
 ggmod.log.length
-## Model predictions for sqrt.speed.priorAvg
-
-gamm <- gam (speed.fid~s(sqrt.speed.priorAvg,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
-             data=data)
-
-summary(gamm)
-mod<-gamm
-par(mfrow=c(1,1))
-plot(gamm)
-gam.check(gamm)
-
-
-
-testdata <- expand.grid(sqrt.speed.priorAvg = seq(min(data$sqrt.speed.priorAvg),max(data$sqrt.speed.priorAvg),length.out = 20),
-                        Treatment = (mod$model$Treatment),
-                        site=(mod$model$site))%>%
-  distinct()%>%
-  glimpse()
-
-
-
-head(testdata)
-fits <- predict.gam(mod, newdata=testdata, type='response', se.fit=T)
-## Plot Sqrt.speedAvg####
-
-predicts.sqrt.speed.avg= testdata%>%data.frame(fits)%>%
-  group_by(sqrt.speed.priorAvg)%>% #only change here
-  summarise(response=mean(fit),se.fit=mean(se.fit))%>%
-  ungroup()
-predicts.sqrt.speed.avg
-
-## Colour
-library(ggplot2)
-
-ggmod.sqrt.speed.prior.avg <-  ggplot(aes(x=sqrt.speed.priorAvg ,y=response), data=predicts.sqrt.speed.avg)+
-  ylab("Speed.FID")+
-  xlab('Sqrt Speed prior Avg')+
-  geom_line(data=predicts.sqrt.speed.avg,aes(x=sqrt.speed.priorAvg, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
-  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
-  theme_classic()
-
-ggmod.sqrt.speed.prior.avg
 
 ## Plot Treatment
 
@@ -317,11 +274,59 @@ ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)
   geom_point(data=data,aes(x=Treatment, y=speed.fid),alpha=0.2)+
   geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
   theme_classic()
-  
-  theme_classic()
+
+theme_classic()
 
 ggmod.Treatment
 
 #### to use different colors in the graph###
 #geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
-  #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
+#scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
+## Model predictions for sqrt.speed.priorAvg
+
+gamm <- gam (speed.fid~s(sqrt.speed.priorAvg,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+             data=data)
+
+summary(gamm)
+mod<-gamm
+par(mfrow=c(1,1))
+plot(gamm)
+gam.check(gamm)
+
+
+
+testdata2 <- expand.grid(sqrt.speed.priorAvg = seq(min(data$sqrt.speed.priorAvg),max(data$sqrt.speed.priorAvg),length.out = 20),
+                        Treatment = (mod$model$Treatment),
+                        site=(mod$model$site))%>%
+  distinct()%>%
+  glimpse()
+
+
+
+head(testdata2)
+fits <- predict.gam(mod, newdata=testdata2, type='response', se.fit=T)
+
+
+## Plot Sqrt.speedAvg####
+
+predicts.sqrt.speed.avg= testdata%>%data.frame(fits)%>%
+  group_by(sqrt.speed.priorAvg)%>% #only change here
+  summarise(response=mean(fit),se.fit=mean(se.fit))%>%
+  ungroup()
+predicts.sqrt.speed.avg
+
+## Colour
+library(ggplot2)
+
+ggmod.sqrt.speed.prior.avg <-  ggplot(aes(x=sqrt.speed.priorAvg ,y=response), data=predicts.sqrt.speed.avg)+
+  ylab("Speed.FID")+
+  xlab('Sqrt Speed prior Avg')+
+  geom_line(data=predicts.sqrt.speed.avg,aes(x=sqrt.speed.priorAvg, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
+  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
+  theme_classic()
+
+ggmod.sqrt.speed.prior.avg
+
+
+
