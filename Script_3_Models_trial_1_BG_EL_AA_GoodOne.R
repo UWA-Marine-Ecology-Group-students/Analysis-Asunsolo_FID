@@ -21,17 +21,28 @@ library(RCurl) #needed to download data from GitHub
 data<- read.csv("data_wide_SchoolsMean_BG_AA.csv")%>%
   glimpse()
 
+table<- table(data$scientific, data$Treatment)
+No.fish.Treatment<-apply(table, MARGIN = 2, FUN = sum)
+No.fish.Treatment
+
+No.fish.scientific<-apply(table, MARGIN = 1, FUN = sum)
+No.fish.scientific
 
 dat <- data %>%
-  dplyr::select(unique_id, fid, length, Treatment, family, genus, species, activity, school_individual, DFSAvg, site)%>%
+  dplyr::select(unique_id, fid, length, Treatment, family, genus, scientific, activity, school_individual, DFSAvg, site)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
 
 glimpse(data)
 
-## Lose ~37 obs
+## Lose ~30 obs
+table<-table(data$Treatment, data$scientific)
+No.fish.Treatment<-apply(table, MARGIN = 2, FUN = sum)
+No.fish.Treatment
 
+No.fish.scientific<-apply(table, MARGIN = 1, FUN = sum)
+No.fish.scientific
 # install package----
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)

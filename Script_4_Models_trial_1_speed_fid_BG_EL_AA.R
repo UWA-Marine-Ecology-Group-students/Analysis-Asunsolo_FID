@@ -23,7 +23,7 @@ data<- read.csv("data_wide_SchoolsMean_BG_AA.csv")%>%
 
 
 dat <- data %>%
-  dplyr::select(unique_id, speed.fid, length, Treatment, family, genus, species, activity, school_individual, speed.priorAvg, site)%>%
+  dplyr::select(unique_id, speed.fid, length, Treatment, family, genus, scientific, activity, school_individual, speed.priorAvg, site)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
@@ -32,6 +32,12 @@ glimpse(data)
 
 ## Lose ~24 obs
 
+table<-table(data$Treatment, data$scientific)
+No.fish.Treatment<-apply(table, MARGIN = 2, FUN = sum)
+No.fish.Treatment
+
+No.fish.scientific<-apply(table, MARGIN = 1, FUN = sum)
+No.fish.scientific
 # install package----
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
