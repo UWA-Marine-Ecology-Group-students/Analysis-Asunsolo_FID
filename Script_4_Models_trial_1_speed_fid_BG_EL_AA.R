@@ -82,7 +82,13 @@ cat.preds= c("Treatment","genus", "school_individual")
 null.vars="site" # use as random effect and null model
 # take a look at the response variables
 
-resp.var=data$log.speed.fid
+
+#Transform response variable###
+
+data$sqrt.speed.fid <- sqrt(data$speed.fid)
+data$log.speed.fid <- log(data$speed.fid + 1)
+
+resp.var=data$sqrt.speed.fid
 resp.var
 
 resp.var=list("speed.fid"=gaussian(link = "identity"))
@@ -98,10 +104,6 @@ dev.off()
 
 glimpse(data)
 
-#Transform response variable###
-
-data$sqrt.speed.fid <- sqrt(data$speed.fid)
-data$log.speed.fid <- log(data$speed.fid + 1)
 
 ### now fit the models ---------------------------------------------------------
 i=1
@@ -182,7 +184,7 @@ all.mod.fits
 all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
-gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(sqrt.speed.priorAvg,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(sqrt.speed.priorAvg,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -193,7 +195,7 @@ gam.check(gamm)
 
 #model predictions for log.length
 
-gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (speed.fid~s(log.length,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -309,7 +311,7 @@ fits <- predict.gam(mod, newdata=testdata2, type='response', se.fit=T)
 
 ## Plot Sqrt.speedAvg####
 
-predicts.sqrt.speed.avg= testdata%>%data.frame(fits)%>%
+predicts.sqrt.speed.avg= testdata2%>%data.frame(fits)%>%
   group_by(sqrt.speed.priorAvg)%>% #only change here
   summarise(response=mean(fit),se.fit=mean(se.fit))%>%
   ungroup()

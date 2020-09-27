@@ -113,7 +113,7 @@ pdf(file="mod_fits_fid.pdf",onefile=T)
 for(i in 1:length(resp.var)){
   use.dat=data[,c(null.vars,cont.preds,cat.preds,resp.var[i])]
   use.dat$response=use.dat[,resp.var[i]]
-  Model1=gam(response~s(log.length,k=4,bs='cr')+
+  Model1=gam(response~s(log.length,k=3,bs='cr')+
                s(site,bs="re"),
              family=gaussian(link = "identity"),
              data=use.dat)
@@ -183,7 +183,7 @@ all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
 
-gamm <- gam (fid~s(log.length,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (fid~s(log.length,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)

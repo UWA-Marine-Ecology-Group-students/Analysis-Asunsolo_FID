@@ -6,6 +6,9 @@ dat<-read.csv("data_wide_SchoolsMean_BG_AA.csv")
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(plyr)
+library(scales)
+library(reshape2)
 #### PLOTS ####
 
 #how to get the data for only one variable within a column
@@ -28,15 +31,59 @@ boxplot(dat$fid~dat$genus, xlab= "Genus", ylab= "FID (mm)", las=3, cex= 0.2)
 plot(dat$Treatment, dat$activity, xlab= "Treatment", ylab= "Type of reaction", col= 1:length(dat$activity))
 #legend(1,95, legend=c("swim backwards", "no response", "hide", "flight", "c-turn"))
 
-###type of reaction####
-type.reaction <-  ggplot(aes(x=Treatment ,y=activity, fill = Treatment), data=dat)+
-  ylab("Type of reaction")+
-  xlab('Treatment')+
-  geom_bar(data=dat,aes(x=Treatment, y=activity),alpha=0.8,stat = "identity",size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=Treatment, y=fid),alpha=0.2)+
- # geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
-  theme_classic()
-type.reaction
+# Theme for plotting ----
+Theme1 <-    theme_bw()+
+  theme( # use theme_get() to see available options
+    panel.grid = element_blank(),
+    panel.border = element_blank(),
+    axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.background = element_blank(),
+    legend.key = element_blank(), # switch off the rectangle around symbols in the legend
+    legend.text = element_text(size=8),
+    legend.title = element_text(vjust=0.3, size=10),
+    #legend.position = "top",
+    text=element_text(size=12),
+    strip.text.y = element_text(size = 12,angle = 0),
+    axis.title.x=element_text(vjust=0.3, size=12),
+    axis.title.y=element_text(vjust=0.6, angle=90, size=12),
+    axis.text.y=element_text(size=12),
+    axis.text.x=element_text(vjust=0.6, angle=45,size=10),
+    axis.line.x=element_line(colour="black", size=0.5,linetype='solid'),
+    axis.line.y=element_line(colour="black", size=0.5,linetype='solid'),
+    strip.background = element_blank(),
+    plot.title = element_text(color="black", size=12, face="bold.italic"))
+
+###type of reaction per Treatment####
+#frequency#
+par(mfrow=c(3,3))
+ggplot(dat, aes(activity)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..))) + 
+  facet_grid(~Treatment)+ xlab("Type of reaction") + ylab("Frequency")+scale_y_continuous(labels=scales::percent) +
+scale_color_manual(values=c("#6A36C9", "#95C936", "#36C9B3", "#DD22B7"))+
+  Theme1
+#Percent#
+ggplot(dat, aes(x= activity,  group=Treatment)) + 
+  geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
+  geom_text(aes( label = scales::percent(..prop..),
+                 y= ..prop.. ), stat= "count", vjust = -.5) +
+  labs(y = "Percent", fill="Activity") +
+  facet_grid(~Treatment) +
+  scale_y_continuous(labels = scales::percent)+
+  Theme1
+
+###type of reaction vs fid####
+
+ggplot(dat,aes(x = activity, y = fid,  fill = activity, notch=FALSE, outlier.shape = NA),alpha=0.5) +
+  stat_boxplot(geom='errorbar')+
+  geom_boxplot(outlier.color = NA, notch=FALSE)+
+  scale_color_manual(values=c("#6A36C9", "#95C936", "#36C9B3", "#DD22B7"))+
+  facet_grid(. ~ Treatment)+
+stat_summary(fun=mean, geom="point", shape=23, size=4)+ #this is adding the dot for the mean
+  scale_y_continuous(expand = expansion(mult = c(0, .1)))+ # this sets 10% above the max for each on the Y scale
+  #scale_fill_manual(values = c("Fished" = "grey", "No-take" = "#1470ad"))+
+  Theme1
 
 plot(dat$Treatment, dat$length, xlab= "Treatment", ylab= "Length")
 dotchart(dat$length, dat$Treatment, xlab= "Fish size (mm)", ylab= "Treatment")
@@ -48,30 +95,6 @@ scatter.smooth(dat$dfs_fid, dat$fid, xlab= "DFS FID (mm)", ylab= "FID (mm)")
 #eliminated DFF variable
 #boxplot(dat$dff.fid~ dat$dff.post.fid, xlab= "DFF FID (mm)", ylab= "DFF post FID (mm)")
 #boxplot(dat$DFF.post.FID~ dat$DFF.FID)
-
-# Theme for plotting ----
-Theme1 <-    theme_bw()+
-  theme( # use theme_get() to see available options
-    panel.grid = element_blank(),
-    panel.border = element_blank(),
-    axis.line = element_line(colour = "black"),
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    legend.background = element_blank(),
-    legend.key = element_blank(), # switch off the rectangle around symbols in the legend
-    legend.text = element_text(size=12),
-    legend.title = element_blank(),
-    #legend.position = "top",
-    text=element_text(size=12),
-    strip.text.y = element_text(size = 12,angle = 0),
-    axis.title.x=element_text(vjust=0.3, size=12),
-    axis.title.y=element_text(vjust=0.6, angle=90, size=12),
-    axis.text.y=element_text(size=12),
-    axis.text.x=element_text(size=12),
-    axis.line.x=element_line(colour="black", size=0.5,linetype='solid'),
-    axis.line.y=element_line(colour="black", size=0.5,linetype='solid'),
-    strip.background = element_blank(),
-    plot.title = element_text(color="black", size=12, face="bold.italic"))
 
 
 # functions for summarising data on plots ----

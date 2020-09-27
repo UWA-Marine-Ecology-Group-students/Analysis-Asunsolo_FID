@@ -1,2 +1,2 @@
 "","modname","AICc","BIC","r2.vals","r2.vals.unique","edf","edf.less.1","delta.AICc","delta.BIC","wi.AICc","wi.BIC","log.length","log.DFSAvg","Treatment","genus","school_individual"
-"fid","log.length+Treatment",1797.8609207997,1815.74025356847,0.20969,NA,7,1,0,0,0.666,0.407,1,0,1,0,0
+"fid","log.length+Treatment",1797.8609208015,1815.74025357026,0.20969,NA,7,1,0,0,0.666,0.407,1,0,1,0,0

@@ -68,10 +68,10 @@ gg.importance.scores <- ggplot(data.label, aes(x=predictor,y=resp.var,fill=impor
                    labels=c(
                      "log.length",
                      "Treatment",
-                     "log.DFSAvg",
-                     "sqrt.speed.priorAvg",
-                     "genus",
-                     "school_individual"
+                     "Distance.from.substrate",
+                     "sqrt.speed.prior.avg",
+                     "Genus",
+                     "School_individual"
                    ))+
   scale_y_discrete(limits = c("fid",
                               "speed.fid"),
