@@ -21,22 +21,22 @@ library(RCurl) #needed to download data from GitHub
 data<- read.csv("data_wide_SchoolsMean_BG_AA.csv")%>%
   glimpse()
 
-table<- table(data$scientific, data$Treatment)
-No.fish.Treatment<-apply(table, MARGIN = 2, FUN = sum)
-No.fish.Treatment
-
-No.fish.scientific<-apply(table, MARGIN = 1, FUN = sum)
-No.fish.scientific
 
 dat <- data %>%
-  dplyr::select(unique_id, fid, length, Treatment, family, genus, scientific, activity, school_individual, DFSAvg, site)%>%
+  dplyr::select(unique_id, speed.fid, length, Treatment, family, genus, scientific, activity, school_individual, speed.priorAvg, site)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
 
 glimpse(data)
 
-## Lose ~30 obs
+data<-mutate(data, speed.dif = c(speed.fid - speed.priorAvg))
+
+#getting rid of outlier
+data<-dplyr::filter(data, !unique_id == "Pipe 1LIZARD2_CAM2_RIG1")
+data<- dplyr::filter(data, !activity == 'no response') 
+## Lose ~24 obs
+
 table<-table(data$Treatment, data$scientific)
 No.fish.Treatment<-apply(table, MARGIN = 2, FUN = sum)
 No.fish.Treatment
@@ -47,7 +47,9 @@ No.fish.scientific
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
 
-cont.preds=c("length","DFSAvg") # use as continuous predictors.
+
+
+cont.preds=c("length","speed.dif") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -74,26 +76,33 @@ for (i in cont.preds) {
 
 data$sqrt.length <- sqrt(data$length) #not sure which transformation to use
 data$log.length <- log(data$length + 1) #between log and sqrt
-data$log.DFSAvg <- log(data$DFSAvg + 1) 
-data$log.DFSAvg <- log(data$DFSAvg + 1) 
+data$sqrt.speed.dif <- sqrt(data$speed.dif) 
+data$log.speed.dif <- log(data$speed.dif + 1) 
 
 
 #transformed variables###
 
-cont.preds=c("log.length", "log.DFSAvg") # use as continuous predictors.
+cont.preds=c("log.length", "sqrt.speed.dif") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
 null.vars="site" # use as random effect and null model
 # take a look at the response variables
 
-resp.var=data$fid
+
+#Transform response variable###
+
+data$sqrt.speed.fid <- sqrt(data$speed.fid)
+data$log.speed.fid <- log(data$speed.fid + 1)
+
+resp.var=data$speed.fid
 resp.var
 
-resp.var=list("fid"=tw())
+resp.var=list("speed.fid"=gaussian(link = "identity"))
+#changed the distribution
 resp.var=names(resp.var)
 
-pdf(file="resp_var.pdf",onefile=T)
+pdf(file="resp_var.speed.pdf",onefile=T)
 for(r in 1:length(resp.var)){
   par(mfrow=c(2,1))
   hist(data[,resp.var[r]],main=resp.var[r])
@@ -103,22 +112,23 @@ dev.off()
 
 glimpse(data)
 
+
 ### now fit the models ---------------------------------------------------------
 i=1
 out.all=list()
 var.imp=list()
 fss.all=list()
 top.all=list()
-pdf(file="mod_fits_fid.pdf",onefile=T)
+pdf(file="mod_fits_speed.fid.pdf",onefile=T)
 for(i in 1:length(resp.var)){
   use.dat=data[,c(null.vars,cont.preds,cat.preds,resp.var[i])]
   use.dat$response=use.dat[,resp.var[i]]
-  Model1=gam(response~s(log.length,k=3,bs='cr')+
+  Model1=gam(response~s(log.length,k=4,bs='cr')+
                s(site,bs="re"),
              family=gaussian(link = "identity"),
              data=use.dat)
   
-model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
+  model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
                                test.fit=Model1,k=3,
                                pred.vars.cont=cont.preds,
                                pred.vars.fact=cat.preds,
@@ -164,26 +174,36 @@ require(doBy)
 require(gplots)
 require(RColorBrewer)
 
-#pdf(file="var_importance_heatmap_fid",height=5,width=7,pointsize=10)
+#pdf(file="var_importance_heatmap_speed_fid.pdf",height=5,width=7,pointsize=10)
 #heatmap.2(all.var.imp,notecex=0.4,  dendrogram ="none",
-#          col=colorRampPalette(c("white","yellow","orange","red"3))(30),
+#          col=colorRampPalette(c("white","yellow","orange","red"#))(30),
 #          trace="none",key.title = "",keysize=2,
 #          notecol="black",key=T,
 #          sepcolor = "black",margins=c(12,14), lhei=c(3,10),lwid=c(3,10),
 #          Rowv=FALSE,Colv=FALSE)
 #dev.off()
 name="FID"
-write.csv(all.mod.fits[,-2],"all_model_fits_fid.csv")
-write.csv(top.mod.fits[,-2],"top_model_fits_fid.csv")
-write.csv(model.set$predictor.correlations,"predictor_correlations.csv")
-write.csv(all.mod.fits[,-2],file=paste(name,"all.mod.fits.csv",sep="_"))
-write.csv(all.var.imp,file=paste(name,"all.var.imp.csv",sep="_"))
+write.csv(all.mod.fits[,-2],"all_model_fits_speed.fid.csv")
+write.csv(top.mod.fits[,-2],"top_model_fits_speed.fid.csv")
+write.csv(model.set$predictor.correlations,"predictor_correlations_speed.fid.csv")
+write.csv(all.mod.fits[,-2],file=paste(name,"all.mod.fits.speed.fid.csv",sep="_"))
+write.csv(all.var.imp,file=paste(name,"all.var.imp.speed.fid.csv",sep="_"))
 all.mod.fits
 all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
+gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(log.speed.dif,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+             data=data)
 
-gamm <- gam (fid~s(log.length,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+summary(gamm)
+mod<-gamm
+par(mfrow=c(1,1))
+plot(gamm)
+gam.check(gamm)
+
+#model predictions for log.length
+
+gamm <- gam (speed.fid~s(log.length,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -193,12 +213,11 @@ plot(gamm)
 gam.check(gamm)
 
 
-#model predictions for log.small
 
 detach("package:plyr", unload=TRUE)#will error - don't worry. Just get rid of this bastard.
 
 testdata <- expand.grid(log.length = seq(min(data$log.length),max(data$log.length),length.out = 20),
-      Treatment = (mod$model$Treatment),
+                        Treatment = (mod$model$Treatment),
                         site=(mod$model$site))%>%
   distinct()%>%
   glimpse()
@@ -209,6 +228,7 @@ head(testdata)
 fits <- predict.gam(mod, newdata=testdata, type='response', se.fit=T)
 # head(fits,2)
 
+## Plot log. length
 
 predicts.log.length= testdata%>%data.frame(fits)%>%
   group_by(log.length)%>% #only change here
@@ -221,31 +241,33 @@ predicts.log.length
 library(ggplot2)
 
 ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.length)+
-  ylab("FID")+
-  xlab('log.length')+
+  ylab("Speed.FID")+
+  xlab('Log length')+
   geom_line(data=predicts.log.length,aes(x=log.length, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=fid),colour="#293462",alpha=0.2)+
-  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), fill="#293462",alpha=0.4, linetype='blank')+
+  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
+  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
   theme_classic()
 
 ggmod.log.length
 
-#### Treatment model predictions####
+## Plot Treatment
 
-testdataT <- expand.grid(log.length = mean(data$log.length),
-                        Treatment = (mod$model$Treatment),
-                        site=(mod$model$site))%>%
+
+testdata1 <- expand.grid(log.length = mean(mod$model$log.length),
+                         Treatment = (mod$model$Treatment),
+                         site=(mod$model$site))%>%
   distinct()%>%
   glimpse()
 
 
 
-head(testdataT)
-fits <- predict.gam(mod, newdata=testdataT, type='response', se.fit=T)
+head(testdata1)
+fits1 <- predict.gam(mod, newdata=testdata1, type='response', se.fit=T)
 # head(fits,2)
 
+## Plot log. length
 
-predicts.Treatment= testdataT%>%data.frame(fits)%>%
+predicts.Treatment= testdata1%>%data.frame(fits1)%>%
   group_by(Treatment)%>% #only change here
   summarise(response=mean(fit),se.fit=mean(se.fit))%>%
   ungroup()
@@ -253,18 +275,68 @@ predicts.Treatment
 
 
 ## Colour
-library(ggplot2)
 
-ggmod.Treatment <-  ggplot(aes(x=Treatment ,y=response, fill = Treatment), data=predicts.Treatment)+
-  ylab("FID (mm)")+
+
+ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)+
+  ylab("Speed.FID")+
   xlab('Treatment')+
   geom_bar(data=predicts.Treatment,aes(x=Treatment, y=response),alpha=0.8,stat = "identity",size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=Treatment, y=fid),alpha=0.2)+
+  geom_point(data=data,aes(x=Treatment, y=speed.fid),alpha=0.2)+
   geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
   theme_classic()
 
+theme_classic()
+
 ggmod.Treatment
-#####################
-## End, congrats!
-#####################
+
+#### to use different colors in the graph###
+#geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
+#scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
+## Model predictions for sqrt.speed.priorAvg
+
+gamm <- gam (speed.fid~s(speed.dif,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+             data=data)
+
+summary(gamm)
+mod<-gamm
+par(mfrow=c(1,1))
+plot(gamm)
+gam.check(gamm)
+
+
+
+testdata2 <- expand.grid(speed.dif = seq(min(data$speed.dif),max(data$speed.dif),length.out = 20),
+                         Treatment = (mod$model$Treatment),
+                         site=(mod$model$site))%>%
+  distinct()%>%
+  glimpse()
+
+
+
+head(testdata2)
+fits <- predict.gam(mod, newdata=testdata2, type='response', se.fit=T)
+
+
+## Plot Sqrt.speedAvg####
+
+predicts.speed.dif= testdata2%>%data.frame(fits)%>%
+  group_by(speed.dif)%>% #only change here
+  summarise(response=mean(fit),se.fit=mean(se.fit))%>%
+  ungroup()
+predicts.speed.dif
+
+## Colour
+library(ggplot2)
+
+ggmod.speed.dif <-  ggplot(aes(x=speed.dif ,y=response), data=predicts.speed.dif)+
+  ylab("Speed.FID")+
+  xlab('speed.difference')+
+  geom_line(data=predicts.speed.dif,aes(x=speed.dif, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
+  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
+  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
+  theme_classic()
+
+ggmod.speed.dif
+
+
 

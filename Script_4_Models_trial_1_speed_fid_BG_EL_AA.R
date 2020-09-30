@@ -23,12 +23,22 @@ data<- read.csv("data_wide_SchoolsMean_BG_AA.csv")%>%
 
 
 dat <- data %>%
-  dplyr::select(unique_id, speed.fid, length, Treatment, family, genus, scientific, activity, school_individual, speed.priorAvg, site)%>%
+  dplyr::select(unique_id, speed.fid, length, Treatment, family, genus, scientific, activity, school_individual, speed.priorAvg, site, speed.dif)%>%
   glimpse()
 
 data<-na.omit(dat)#%>%
 
 glimpse(data)
+
+
+#getting rid of outlier
+data<-dplyr::filter(data, !unique_id == "Pipe 1LIZARD2_CAM2_RIG1")
+
+outliers<-dplyr::filter(data, speed.fid >0.90)
+outliers
+
+data<-dplyr::filter(data, !speed.fid >0.9)
+
 
 ## Lose ~24 obs
 
@@ -42,7 +52,9 @@ No.fish.scientific
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
 
-cont.preds=c("length","speed.priorAvg") # use as continuous predictors.
+
+
+cont.preds=c("length","speed.dif") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -69,13 +81,13 @@ for (i in cont.preds) {
 
 data$sqrt.length <- sqrt(data$length) #not sure which transformation to use
 data$log.length <- log(data$length + 1) #between log and sqrt
-data$sqrt.speed.priorAvg <- sqrt(data$speed.priorAvg) 
-data$log.speed.priorAvg <- log(data$speed.priorAvg + 1) 
+data$sqrt.speed.dif <- sqrt(data$speed.dif) 
+data$log.speed.dif <- log(data$speed.dif + 1) 
 
 
 #transformed variables###
 
-cont.preds=c("log.length", "sqrt.speed.priorAvg") # use as continuous predictors.
+cont.preds=c("log.length", "speed.dif") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -88,10 +100,11 @@ null.vars="site" # use as random effect and null model
 data$sqrt.speed.fid <- sqrt(data$speed.fid)
 data$log.speed.fid <- log(data$speed.fid + 1)
 
-resp.var=data$sqrt.speed.fid
+resp.var=data$speed.fid
 resp.var
 
-resp.var=list("speed.fid"=gaussian(link = "identity"))
+resp.var=list("speed.fid"=tw())
+#changed the distribution
 resp.var=names(resp.var)
 
 pdf(file="resp_var.speed.pdf",onefile=T)
@@ -184,7 +197,7 @@ all.mod.fits
 all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
-gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(sqrt.speed.priorAvg,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(log.speed.dif,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -286,7 +299,7 @@ ggmod.Treatment
 #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
 ## Model predictions for sqrt.speed.priorAvg
 
-gamm <- gam (speed.fid~s(sqrt.speed.priorAvg,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+gamm <- gam (speed.fid~s(speed.dif,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
 
 summary(gamm)
@@ -297,7 +310,7 @@ gam.check(gamm)
 
 
 
-testdata2 <- expand.grid(sqrt.speed.priorAvg = seq(min(data$sqrt.speed.priorAvg),max(data$sqrt.speed.priorAvg),length.out = 20),
+testdata2 <- expand.grid(speed.dif = seq(min(data$speed.dif),max(data$speed.dif),length.out = 20),
                         Treatment = (mod$model$Treatment),
                         site=(mod$model$site))%>%
   distinct()%>%
@@ -311,24 +324,24 @@ fits <- predict.gam(mod, newdata=testdata2, type='response', se.fit=T)
 
 ## Plot Sqrt.speedAvg####
 
-predicts.sqrt.speed.avg= testdata2%>%data.frame(fits)%>%
-  group_by(sqrt.speed.priorAvg)%>% #only change here
+predicts.speed.dif= testdata2%>%data.frame(fits)%>%
+  group_by(speed.dif)%>% #only change here
   summarise(response=mean(fit),se.fit=mean(se.fit))%>%
   ungroup()
-predicts.sqrt.speed.avg
+predicts.speed.dif
 
 ## Colour
 library(ggplot2)
 
-ggmod.sqrt.speed.prior.avg <-  ggplot(aes(x=sqrt.speed.priorAvg ,y=response), data=predicts.sqrt.speed.avg)+
+ggmod.speed.dif <-  ggplot(aes(x=speed.dif ,y=response), data=predicts.speed.dif)+
   ylab("Speed.FID")+
-  xlab('Sqrt Speed prior Avg')+
-  geom_line(data=predicts.sqrt.speed.avg,aes(x=sqrt.speed.priorAvg, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
+  xlab('speed.difference')+
+  geom_line(data=predicts.speed.dif,aes(x=speed.dif, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
   geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
   geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
   theme_classic()
 
-ggmod.sqrt.speed.prior.avg
+ggmod.speed.dif
 
 
 

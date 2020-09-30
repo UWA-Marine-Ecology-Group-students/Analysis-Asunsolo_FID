@@ -44,7 +44,9 @@ dat1<-dplyr::filter(dat, !school_individual=="School")%>%
   dplyr::select(!X)
 
 dat<- rbind(dat1,school.mean)
-dat<- dplyr::filter(dat, !genus=="Pomacanthus")
+dat<-dplyr::filter(dat, !genus=="Pomacanthus")
+dat<-dplyr::mutate(dat, speed.dif = c(speed.fid - speed.priorAvg))
+
 
 write.csv(dat, "data_wide_SchoolsMean_BG_AA.csv")
 

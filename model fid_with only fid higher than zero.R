@@ -36,6 +36,10 @@ data<-na.omit(dat)#%>%
 
 glimpse(data)
 
+
+data<- dplyr::filter(data, !activity == 'no response') 
+
+data
 ## Lose ~30 obs
 table<-table(data$Treatment, data$scientific)
 No.fish.Treatment<-apply(table, MARGIN = 2, FUN = sum)
@@ -90,7 +94,7 @@ null.vars="site" # use as random effect and null model
 resp.var=data$fid
 resp.var
 
-resp.var=list("fid"=tw())
+resp.var=list("fid"=gaussian(link = "identity"))
 resp.var=names(resp.var)
 
 pdf(file="resp_var.pdf",onefile=T)
@@ -118,7 +122,7 @@ for(i in 1:length(resp.var)){
              family=gaussian(link = "identity"),
              data=use.dat)
   
-model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
+  model.set=generate.model.set(use.dat=use.dat,max.predictors=2,   # limit size here because null model already complex
                                test.fit=Model1,k=3,
                                pred.vars.cont=cont.preds,
                                pred.vars.fact=cat.preds,
@@ -198,7 +202,7 @@ gam.check(gamm)
 detach("package:plyr", unload=TRUE)#will error - don't worry. Just get rid of this bastard.
 
 testdata <- expand.grid(log.length = seq(min(data$log.length),max(data$log.length),length.out = 20),
-      Treatment = (mod$model$Treatment),
+                        Treatment = (mod$model$Treatment),
                         site=(mod$model$site))%>%
   distinct()%>%
   glimpse()
@@ -233,8 +237,8 @@ ggmod.log.length
 #### Treatment model predictions####
 
 testdataT <- expand.grid(log.length = mean(data$log.length),
-                        Treatment = (mod$model$Treatment),
-                        site=(mod$model$site))%>%
+                         Treatment = (mod$model$Treatment),
+                         site=(mod$model$site))%>%
   distinct()%>%
   glimpse()
 
