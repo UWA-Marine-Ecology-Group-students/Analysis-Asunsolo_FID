@@ -47,7 +47,7 @@ No.fish.scientific
 # devtools::install_github("beckyfisher/FSSgam_package") #run once
 library(FSSgam)
 
-cont.preds=c("length","DFSAvg") # use as continuous predictors.
+cont.preds=c("length") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -80,7 +80,7 @@ data$log.DFSAvg <- log(data$DFSAvg + 1)
 
 #transformed variables###
 
-cont.preds=c("log.length", "log.DFSAvg") # use as continuous predictors.
+cont.preds=c("log.length") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -90,7 +90,7 @@ null.vars="site" # use as random effect and null model
 resp.var=data$fid
 resp.var
 
-resp.var=list("fid"=tw())
+resp.var=list("fid"=gaussian(link = "identity"))
 resp.var=names(resp.var)
 
 pdf(file="resp_var.pdf",onefile=T)
@@ -193,7 +193,7 @@ plot(gamm)
 gam.check(gamm)
 
 
-#model predictions for log.small
+#model predictions for log.length
 
 detach("package:plyr", unload=TRUE)#will error - don't worry. Just get rid of this bastard.
 
@@ -221,7 +221,7 @@ predicts.log.length
 library(ggplot2)
 
 ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.length)+
-  ylab("FID")+
+  ylab("FID (mm)")+
   xlab('log.length')+
   geom_line(data=predicts.log.length,aes(x=log.length, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
   geom_point(data=data,aes(x=log.length, y=fid),colour="#293462",alpha=0.2)+
@@ -264,6 +264,10 @@ ggmod.Treatment <-  ggplot(aes(x=Treatment ,y=response, fill = Treatment), data=
   theme_classic()
 
 ggmod.Treatment
+
+final.plot<- ggmod.Treatment +  scale_fill_manual(values=c( "#C70039","#2BB2BB", "#8FC0A9","#F08A5D","#8675A9" ))
+final.plot
+
 #####################
 ## End, congrats!
 #####################

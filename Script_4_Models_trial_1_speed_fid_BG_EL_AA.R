@@ -54,7 +54,7 @@ library(FSSgam)
 
 
 
-cont.preds=c("length","speed.dif") # use as continuous predictors.
+cont.preds=c("length") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -62,7 +62,7 @@ null.vars="site" # use as random effect and null model
 
 # Check for correalation of predictor variables- remove anything highly correlated (>0.95)---
 # running a correlation of continuous variables####
-round(cor(data[,cont.preds], use = "complete.obs"),2)
+#round(cor(data[,cont.preds], use = "complete.obs"),2)
 
 # Plot of likely transformations - thanks to Anna Cresswell for this loop!
 par(mfrow=c(3,2))
@@ -87,7 +87,7 @@ data$log.speed.dif <- log(data$speed.dif + 1)
 
 #transformed variables###
 
-cont.preds=c("log.length", "speed.dif") # use as continuous predictors.
+cont.preds=c("log.length") # use as continuous predictors.
 
 cat.preds= c("Treatment","genus", "school_individual")
 
@@ -100,10 +100,10 @@ null.vars="site" # use as random effect and null model
 data$sqrt.speed.fid <- sqrt(data$speed.fid)
 data$log.speed.fid <- log(data$speed.fid + 1)
 
-resp.var=data$speed.fid
+resp.var=data$speed.dif
 resp.var
 
-resp.var=list("speed.fid"=tw())
+resp.var=list("speed.dif"=gaussian(link = "identity"))
 #changed the distribution
 resp.var=names(resp.var)
 
@@ -197,27 +197,19 @@ all.mod.fits
 all.var.imp
 
 #### pretty plots of best model -----------------------------------------------
-gamm <- gam (speed.fid~s(log.length,k=4,bs='cr') + s(log.speed.dif,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
+
+gamm <- gam (speed.dif~s(log.length,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
              data=data)
+
 
 summary(gamm)
 mod<-gamm
 par(mfrow=c(1,1))
 plot(gamm)
 gam.check(gamm)
+
 
 #model predictions for log.length
-
-gamm <- gam (speed.fid~s(log.length,k=3,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
-             data=data)
-
-summary(gamm)
-mod<-gamm
-par(mfrow=c(1,1))
-plot(gamm)
-gam.check(gamm)
-
-
 
 detach("package:plyr", unload=TRUE)#will error - don't worry. Just get rid of this bastard.
 
@@ -257,6 +249,7 @@ ggmod.log.length
 
 ## Plot Treatment
 
+#model predictions for Treatment
 
 testdata1 <- expand.grid(log.length = mean(mod$model$log.length),
                          Treatment = (mod$model$Treatment),
@@ -270,7 +263,7 @@ head(testdata1)
 fits1 <- predict.gam(mod, newdata=testdata1, type='response', se.fit=T)
 # head(fits,2)
 
-## Plot log. length
+## Plot Treatment
 
 predicts.Treatment= testdata1%>%data.frame(fits1)%>%
   group_by(Treatment)%>% #only change here
@@ -282,7 +275,7 @@ predicts.Treatment
 ## Colour
 
 
-ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)+
+ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response, fill = Treatment), data=predicts.Treatment)+
   ylab("Speed.FID")+
   xlab('Treatment')+
   geom_bar(data=predicts.Treatment,aes(x=Treatment, y=response),alpha=0.8,stat = "identity",size=1,show.legend=TRUE)+
@@ -290,58 +283,13 @@ ggmod.Treatment<-  ggplot(aes(x=Treatment ,y=response), data=predicts.Treatment)
   geom_errorbar(aes(ymin = response-se.fit,ymax = response+se.fit),width = 0.5, size=1, alpha=0.6, colour="grey30") +
   theme_classic()
 
-theme_classic()
-
 ggmod.Treatment
+
+final.plot<- ggmod.Treatment +  scale_fill_manual(values=c( "#C70039","#2BB2BB", "#8FC0A9","#F08A5D","#8675A9"))
+final.plot
 
 #### to use different colors in the graph###
 #geom_bar(stat = "identity", alpha=0.6, fill="#293462")+
 #scale_fill_manual(labels = c("shallow", "deep"),values=c("#00818a", "#00818a"))+  ## Change the names here
-## Model predictions for sqrt.speed.priorAvg
-
-gamm <- gam (speed.fid~s(speed.dif,k=4,bs='cr') + Treatment + s(site,bs="re"), family=gaussian(link = "identity"),
-             data=data)
-
-summary(gamm)
-mod<-gamm
-par(mfrow=c(1,1))
-plot(gamm)
-gam.check(gamm)
-
-
-
-testdata2 <- expand.grid(speed.dif = seq(min(data$speed.dif),max(data$speed.dif),length.out = 20),
-                        Treatment = (mod$model$Treatment),
-                        site=(mod$model$site))%>%
-  distinct()%>%
-  glimpse()
-
-
-
-head(testdata2)
-fits <- predict.gam(mod, newdata=testdata2, type='response', se.fit=T)
-
-
-## Plot Sqrt.speedAvg####
-
-predicts.speed.dif= testdata2%>%data.frame(fits)%>%
-  group_by(speed.dif)%>% #only change here
-  summarise(response=mean(fit),se.fit=mean(se.fit))%>%
-  ungroup()
-predicts.speed.dif
-
-## Colour
-library(ggplot2)
-
-ggmod.speed.dif <-  ggplot(aes(x=speed.dif ,y=response), data=predicts.speed.dif)+
-  ylab("Speed.FID")+
-  xlab('speed.difference')+
-  geom_line(data=predicts.speed.dif,aes(x=speed.dif, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=speed.fid),colour="#293462",alpha=0.2)+
-  geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), alpha=0.4, fill="#293462", linetype='blank')+
-  theme_classic()
-
-ggmod.speed.dif
-
 
 

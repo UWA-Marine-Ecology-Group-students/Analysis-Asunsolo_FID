@@ -177,11 +177,11 @@ require(RColorBrewer)
 #          Rowv=FALSE,Colv=FALSE)
 #dev.off()
 name="FID"
-write.csv(all.mod.fits[,-2],"all_model_fits_fid.csv")
-write.csv(top.mod.fits[,-2],"top_model_fits_fid.csv")
-write.csv(model.set$predictor.correlations,"predictor_correlations.csv")
-write.csv(all.mod.fits[,-2],file=paste(name,"all.mod.fits.csv",sep="_"))
-write.csv(all.var.imp,file=paste(name,"all.var.imp.csv",sep="_"))
+write.csv(all.mod.fits[,-2],"all_model_fits_fid_No_Zeros.csv")
+write.csv(top.mod.fits[,-2],"top_model_fits_fid_No_Zeros.csv")
+write.csv(model.set$predictor.correlations,"predictor_correlations_No_Zeros.csv")
+write.csv(all.mod.fits[,-2],file=paste(name,"all.mod.fits.No.Zeros.csv",sep="_"))
+write.csv(all.var.imp,file=paste(name,"all.var.imp.No.Zeros.csv",sep="_"))
 all.mod.fits
 all.var.imp
 
@@ -225,14 +225,19 @@ predicts.log.length
 library(ggplot2)
 
 ggmod.log.length <-  ggplot(aes(x=log.length ,y=response), data=predicts.log.length)+
-  ylab("FID")+
+  ylab("FID (mm)")+
   xlab('log.length')+
   geom_line(data=predicts.log.length,aes(x=log.length, y=response),colour="#293462",alpha=0.8,size=1,show.legend=TRUE)+
-  geom_point(data=data,aes(x=log.length, y=fid),colour="#293462",alpha=0.2)+
+  geom_point(data=data,aes(x=log.length, y=fid, fill = Treatment,alpha=0.2, colour= "#293462"))+
   geom_ribbon(aes(ymin=response-se.fit, ymax=response + se.fit), fill="#293462",alpha=0.4, linetype='blank')+
   theme_classic()
 
 ggmod.log.length
+
+
+#Not working :(
+final.plot<- ggmod.log.length +  scale_fill_manual(values=c( "#C70039","#2BB2BB", "#8FC0A9","#F08A5D","#8675A9" ))
+final.plot
 
 #### Treatment model predictions####
 

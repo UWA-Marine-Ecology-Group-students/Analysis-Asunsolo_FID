@@ -29,19 +29,19 @@ Theme1 <-
     legend.title = element_text(size=8, face="bold"),
     legend.position = "top",
     legend.direction="horizontal",
-    text=element_text(size=10),
-    strip.text.y = element_text(size = 10,angle = 0),
-    axis.title.x=element_text(vjust=0.3, size=10),
-    axis.title.y=element_text(vjust=0.6, angle=90, size=10),
-    axis.text.x=element_text(size=10,angle = 90, hjust=1,vjust=0.5),
-    axis.text.y=element_text(size=10,face="italic"),
+    text=element_text(size=15),
+    strip.text.y = element_text(size = 15,angle = 0),
+    axis.title.x=element_text(vjust=0.3, size=15),
+    axis.title.y=element_text(vjust=0.6, angle=90, size=15),
+    axis.text.x=element_text(size=13,angle = 45, hjust=0.55,vjust=0.63),
+    axis.text.y=element_text(size=13,face="italic"),
     axis.line.x=element_line(colour="black", size=0.5,linetype='solid'),
     axis.line.y=element_line(colour="black", size=0.5,linetype='solid'),
     strip.background = element_blank())
 
 
 # colour ramps-
-re <- colorRampPalette(c("mistyrose", "red2","darkred"))(200)
+re <- colorRampPalette(c("mistyrose", "red3","darkred"))(200)
 
 # Labels-
 legend_title<-"Importance"
@@ -51,7 +51,7 @@ data.label<-data%>%
   mutate(label=NA)%>%
   mutate(label=ifelse((predictor=="log.length"&resp.var=="fid"),"X",
                ifelse((predictor=="Treatment"&resp.var=="fid"),"X",label)))%>%
-  mutate(label=ifelse(predictor=="log.length"&resp.var=="speed.fid","X",ifelse(predictor=="sqrt.speed.priorAvg"&resp.var=="speed.fid","X",label)))%>%
+  mutate(label=ifelse(predictor=="Treatment"&resp.var=="speed.fid","X",label))%>%
   glimpse()
 
 # Plot gg.importance.scores ----
@@ -62,14 +62,12 @@ gg.importance.scores <- ggplot(data.label, aes(x=predictor,y=resp.var,fill=impor
   scale_x_discrete(limits=c("log.length",
                             "Treatment",
                             "log.DFSAvg",
-                            "sqrt.speed.priorAvg",
                             "genus",
                             "school_individual"),
                    labels=c(
-                     "log.length",
+                     "log.length of prey",
                      "Treatment",
                      "Distance.from.substrate",
-                     "sqrt.speed.prior.avg",
                      "Genus",
                      "School_individual"
                    ))+
@@ -83,3 +81,4 @@ gg.importance.scores <- ggplot(data.label, aes(x=predictor,y=resp.var,fill=impor
   Theme1+
   geom_text(aes(label=label))
 gg.importance.scores
+
